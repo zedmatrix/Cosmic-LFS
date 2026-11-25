@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      2.29.&nbsp;Pop-fonts-master
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL-NS Stylesheets Vsnapshot" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="blfs" id="blfs-1.0-cosmic">
+    <div class="navheader">
+      <h4>
+        Cosmic From Scratch - Version 1.0-cosmic
+      </h4>
+      <h3>
+        Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="pop-gtk-theme.html" title=
+          "Pop-gtk-theme-v5.5.1">Prev</a>
+          <p>
+            Pop-gtk-theme-v5.5.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="cosmic-session.html" title=
+          "Cosmic-session-1.11.0">Next</a>
+          <p>
+            Cosmic-session-1.11.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter02.html" title=
+          "Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Cosmic From Scratch - Version 1.0-cosmic">Home</a>
+        </li>
+      </ul>
+    </div>
+    <h1 class="sect1">
+      <a id="pop-fonts" name="pop-fonts"></a>2.29. Pop-fonts-master
+    </h1>
+    <div class="sect1" lang="en" xml:lang="en">
+      <div class="package" lang="en" xml:lang="en">
+        <p>
+          System76 primarily uses two fonts, Fira and Roboto Slab.
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Download GIT URL: <a class="ulink" href=
+                "https://github.com/pop-os/fonts.git">https://github.com/pop-os/fonts.git</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download Size: 77,175 KB
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Disk Space: 101.1M
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Build Time: less than 0.1 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Pop-fonts Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p>
+          fontconfig, and git
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          2.29.1. Installation of Pop-fonts
+        </h2>
+        <p>
+          Prepare Pop-fonts by cloning the repo:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">git clone https://github.com/pop-os/fonts.git pop-fonts &amp;&amp;
+cd pop-fonts</kbd></pre>
+        <p>
+          Now Install the fonts by copying:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">cp --no-preserve=mode,ownership -rv fira /usr/share/fonts/ &amp;&amp;
+cp --no-preserve=mode,ownership -rv roboto-slab /usr/share/fonts/</kbd></pre>
+        <p>
+          Now Update the font cache, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">fc-cache -v /usr/share/fonts/fira &amp;&amp;
+fc-cache -v /usr/share/fonts/roboto-slab
+</kbd></pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          2.29.2. Contents of Pop-fonts
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed programs:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed libraries:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed directories:</strong>
+              <span class="segbody">/usr/share/fonts/{roboto-slab,
+              fira}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="pop-gtk-theme.html" title=
+          "Pop-gtk-theme-v5.5.1">Prev</a>
+          <p>
+            Pop-gtk-theme-v5.5.1
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="cosmic-session.html" title=
+          "Cosmic-session-1.11.0">Next</a>
+          <p>
+            Cosmic-session-1.11.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter02.html" title=
+          "Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Cosmic From Scratch - Version 1.0-cosmic">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!ENTITY % relnum "1.0">
+<!ENTITY % reldate "November 23rd, 2026">
+<!ENTITY % crdate "1999-2026">
+
+<!ENTITY version           "1.0-cosmic">
+<!ENTITY releasedate      "November 23rd, 2026">
+<!ENTITY copyrightdate     "1999-2026">
+
+<!ENTITY additional      "Additional Downloads">
+<!ENTITY patch-url       "Download HTTP">
+<!ENTITY patch-shasum    "Download SHA256 Sum">
+<!ENTITY download-url    "Download HTTP">
+<!ENTITY download-shasum "Download SHA256 Sum">
+<!ENTITY buildtime       "Approximate build time">
+<!ENTITY diskspace       "Required disk space">
+<!ENTITY dependencies    "Installation depends on">
+<!ENTITY runtime         "Required at runtime">
+<!ENTITY testsuites      "Test suite depends on">
+<!ENTITY before          "Must be installed before">
+<!ENTITY external        "Optional dependencies">
+
+<!ENTITY gnu             "https://mirror.csclub.uwaterloo.ca/gnu/">
+<!ENTITY gnu-ftp         "https://ftpmirror.gnu.org/">
+<!ENTITY gnu-software    "https://www.gnu.org/software/">
+<!ENTITY alpha-gnu       "https://alpha.gnu.org/gnu/">
+<!ENTITY kernel          "https://www.kernel.org/pub/">
+<!ENTITY sourceforge     "https://prdownloads.sourceforge.net/">
+<!ENTITY savannah        "https://download.savannah.gnu.org">
+<!ENTITY savannah-nongnu "https://savannah.nongnu.org">
+<!ENTITY osuosl-pub       "https://ftp.osuosl.org/pub/">
+<!ENTITY github          "https://github.com/">
+<!ENTITY pypi-home       "https://pypi.org/project">
+<!ENTITY pypi-src        "https://pypi.org/packages/source">
+<!ENTITY man             "https://man.archlinux.org/man/">
+<!ENTITY gitlab          "https://gitlab.com/zed-linuxfromscratch/">
+<!ENTITY trak4           "https://trak4.com/musl-from-scratch/musl-packages/">
+<!ENTITY zirconium       "https://zedmatrix.github.io/lfs-musl.github.io/">
+
+<!ENTITY root            "<systemitem class='username'>root</systemitem>">
+<!ENTITY lfs-user        "<systemitem class='username'>lfs</systemitem>">
+<!ENTITY lfs-username    "<userinput remap='user'>lfs</userinput>">
+<!ENTITY lfs-groupname   "<userinput remap='group'>lfs</userinput>">
+<!ENTITY devtmpfs        "<systemitem class='filesystem'>devtmpfs</systemitem>">
+<!ENTITY fstab           "<filename>/etc/fstab</filename>">
+<!ENTITY boot-dir        "<filename class='directory'>/boot</filename>">
+<!ENTITY ch-final        "<xref linkend='chapter-building-system'/>">
+<!ENTITY ch-tmp-cross    "<xref linkend='chapter-temporary-tools'/>">
+<!ENTITY ch-tmp-chroot   "<xref linkend='chapter-chroot-temporary-tools'/>">
+
+<!ENTITY cosmic-url "https://github.com/fsvm88/cosmic-overlay/releases/download">
+<!ENTITY cosmic-version  "1.11.0">

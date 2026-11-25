@@ -1,0 +1,186 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      2.24.&nbsp;Pop-launcher-1.11.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL-NS Stylesheets Vsnapshot" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="blfs" id="blfs-1.0-cosmic">
+    <div class="navheader">
+      <h4>
+        Cosmic From Scratch - Version 1.0-cosmic
+      </h4>
+      <h3>
+        Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="cosmic-initial-setup.html" title=
+          "Cosmic-initial-setup-1.11.0">Prev</a>
+          <p>
+            Cosmic-initial-setup-1.11.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="cosmic-launcher.html" title=
+          "Cosmic-launcher-1.11.0">Next</a>
+          <p>
+            Cosmic-launcher-1.11.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter02.html" title=
+          "Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Cosmic From Scratch - Version 1.0-cosmic">Home</a>
+        </li>
+      </ul>
+    </div>
+    <h1 class="sect1">
+      <a id="pop-launcher" name="pop-launcher"></a>2.24. Pop-launcher-1.11.0
+    </h1>
+    <div class="sect1" lang="en" xml:lang="en">
+      <div class="package" lang="en" xml:lang="en">
+        <p>
+          Modular IPC-based desktop launcher service
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Download HTTP: <a class="ulink" href=
+                "https://github.com/fsvm88/cosmic-overlay/releases/download/1.11.0/pop-launcher-1.11.0.full.tar.zst">
+                https://github.com/fsvm88/cosmic-overlay/releases/download/1.11.0/pop-launcher-1.11.0.full.tar.zst</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download SHA256 Sum:
+                dc0b40675b14fc007e87a8054e34078eb311ba20cab216445471517c010e1128
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download Size: 37,714 KB
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Disk Space: 1.2G
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Build Time: 1.03 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Pop-launcher Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p>
+          rustc, cargo-c, libqalculate, dbus, mesa, libxkbcommon, xdg-utils,
+          and pop-icon-theme
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          2.24.1. Installation of Pop-launcher
+        </h2>
+        <p>
+          Prepare Pop-launcher for compilation:
+        </p>
+        <p>
+          Now Configure the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">cargo fetch --locked</kbd></pre>
+        <p>
+          To Compile the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">cargo build --release -p pop-launcher-bin</kbd></pre>
+        <p>
+          Now Install the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">install -vDm755 target/release/pop-launcher-bin /usr/bin/pop-launcher &amp;&amp;
+
+(cd scripts &amp;&amp; find . -type f -exec install -Dm755 {} /usr/share/pop-launcher/scripts/{} \;) &amp;&amp;
+
+for p in calc cosmic_toplevel desktop_entries files find pop_shell pulse recent scripts terminal web; do
+  install -vdm755 "/usr/lib/pop-launcher/plugins/$p"
+  install -vm644 plugins/src/"$p"/*.ron "/usr/lib/pop-launcher/plugins/$p"/
+  ln -vsfr /usr/bin/pop-launcher "/usr/lib/pop-launcher/plugins/$p/${p/_/-}"
+done</kbd></pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          2.24.2. Contents of Pop-launcher
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed programs:</strong>
+              <span class="segbody">pop-launcher, (plugin links calc,
+              cosmic_toplevel, desktop_entries, files, find, pop_shell,
+              pulse, recent, scripts, terminal, and web)</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed libraries:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed directories:</strong>
+              <span class="segbody">/usr/bin,
+              /usr/share/pop-launcher/scripts, and
+              /usr/lib/pop-launcher/plugins</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="cosmic-initial-setup.html" title=
+          "Cosmic-initial-setup-1.11.0">Prev</a>
+          <p>
+            Cosmic-initial-setup-1.11.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="cosmic-launcher.html" title=
+          "Cosmic-launcher-1.11.0">Next</a>
+          <p>
+            Cosmic-launcher-1.11.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter02.html" title=
+          "Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Cosmic From Scratch - Version 1.0-cosmic">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

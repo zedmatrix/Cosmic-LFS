@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-initial-setup-version    "1.11.0">
+  <!ENTITY cosmic-initial-setup-size       "79,875 KB">
+  <!ENTITY cosmic-initial-setup-url        "&cosmic-url;/1.11.0/cosmic-initial-setup-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-initial-setup-sha256sum  "233a0c622a9274e865cf381ca29e75a716867a073bb3d34e1b4bff4351eb9808">
+  <!ENTITY cosmic-initial-setup-md5sum     "7cd49af9de1616d1fd09b68455009890">
+  <!ENTITY cosmic-initial-setup-extracted  "1019.7M">
+  <!ENTITY cosmic-initial-setup-buildsize  "3.1G">
+  <!ENTITY cosmic-initial-setup-buildtime  "3.53 SBU">
+]>
+ <sect1 id="cosmic-initial-setup" xreflabel="Cosmic-initial-setup-&cosmic-initial-setup-version;">
+    <?dbhtml filename="cosmic-initial-setup.html"?>
+
+      <title>Cosmic-initial-setup-&cosmic-initial-setup-version;</title>
+
+      <indexterm zone="cosmic-initial-setup">
+          <primary sortas="a-Cosmic-initial-setup">Cosmic-initial-setup</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>initial setup program for COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-initial-setup-url;"/></para>
+        </listitem>
+
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-initial-setup-sha256sum;</para>
+        </listitem>
+
+        <listitem>
+          <para>Download Size: &cosmic-initial-setup-size;</para>
+        </listitem>
+
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-initial-setup-buildsize;</para>
+        </listitem>
+
+        <listitem>
+          <para>Estimated Build Time: &cosmic-initial-setup-buildtime;</para>
+        </listitem>
+
+      </itemizedlist>
+        <bridgehead renderas="sect3">Cosmic-initial-setup Dependencies</bridgehead>
+          <bridgehead renderas="sect4">Required</bridgehead>
+
+            <para>rustc, cargo-c, libinput, pulseaudio, polkit, libxkbcommon, and cosmic-icons</para>
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-initial-setup</title>
+
+    <para>Prepare Cosmic-initial-setup for compilation:</para>
+
+    <para>Fetch the dependencies, ensuring the exact versions recorded in the
+      existing <filename>Cargo.lock</filename> file are used:</para>
+
+        <screen><userinput remap="pre">cargo fetch --locked</userinput></screen>
+
+      <para>To Compile the Package, issue:</para>
+
+        <screen><userinput remap="make">cargo build --profile release --frozen</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vDm755 target/release/cosmic-initial-setup \
+        /usr/bin/cosmic-initial-setup &amp;&amp;
+
+install -vDm644 res/*.desktop /usr/share/applications/ &amp;&amp;
+
+install -vdm755 /etc/xdg/autostart &amp;&amp;
+
+install -vDm644 res/com.system76.CosmicInitialSetup.Autostart.desktop \
+  /etc/xdg/autostart/com.system76.CosmicInitialSetup.desktop &amp;&amp;
+
+install -vDm644 res/icon.svg \
+  /usr/share/icons/hicolor/scalable/apps/com.system76.CosmicInitialSetup.svg &amp;&amp;
+
+install -vdm755 /usr/share/cosmic-layouts &amp;&amp;
+
+cp -rv res/layouts/* /usr/share/cosmic-layouts &amp;&amp;
+
+install -vdm755 /usr/share/cosmic-themes &amp;&amp;
+
+cp -rv res/themes/* /usr/share/cosmic-themes</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-initial-setup</title>
+
+        <segmentedlist>
+          <segtitle>Installed program</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>cosmic-initial-setup</seg>
+          <seg>None</seg>
+          <seg>/usr/bin, /usr/share/applications, /etc/xdg/autostart,
+            /usr/share/icons/hicolor, /usr/share/cosmic-layouts,
+            and /usr/share/cosmic-themes</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

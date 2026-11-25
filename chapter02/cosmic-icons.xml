@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-icons-version    "1.11.0">
+  <!ENTITY cosmic-icons-size       "225 KB">
+  <!ENTITY cosmic-icons-url        "&cosmic-url;/1.11.0/cosmic-icons-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-icons-sha256sum  "e7384100240089549f6ea30c616e6f4691dd2376e507ebd207474f13d950a3e7">
+  <!ENTITY cosmic-icons-md5sum     "07e6f4cdcb4986e117980adb351f0833">
+  <!ENTITY cosmic-icons-extracted  "934.6K">
+  <!ENTITY cosmic-icons-buildsize  "934.6K">
+  <!ENTITY cosmic-icons-buildtime  "less than 0.5 SBU">
+]>
+ <sect1 id="cosmic-icons" xreflabel="Cosmic-icons-&cosmic-icons-version;">
+    <?dbhtml filename="cosmic-icons.html"?>
+
+      <title>Cosmic-icons-&cosmic-icons-version;</title>
+
+      <indexterm zone="cosmic-icons">
+          <primary sortas="a-Cosmic-icons">Cosmic-icons</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>icon set COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-icons-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-icons-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &cosmic-icons-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-icons-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &cosmic-icons-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>
+        <bridgehead renderas="sect3">Cosmic-icons Dependencies</bridgehead>
+          <bridgehead renderas="sect4">Required</bridgehead>
+          <para>pop-icon-theme</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-icons</title>
+
+    <para>Prepare Cosmic-icons for compilation:</para>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vdm755 /usr/share/icons/Cosmic
+
+cp -rv freedesktop/scalable/* /usr/share/icons/Cosmic
+cp -rv extra/scalable/* /usr/share/icons/Cosmic
+cp -v index.theme /usr/share/icons/Cosmic/</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-icons</title>
+
+        <segmentedlist>
+          <segtitle>Installed programs</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>PROGRAMS</seg>
+          <seg>LIBRARIES</seg>
+          <seg>DIRECTORIES</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY pop-gtk-theme-version    "v5.5.1">
+  <!ENTITY pop-gtk-theme-size       "3,132 KB">
+  <!ENTITY pop-gtk-theme-url        "https://github.com/pop-os/gtk-theme/archive/refs/tags/v5.5.1.tar.gz">
+  <!ENTITY pop-gtk-theme-sha256sum  "080aa631459c941fa18f0facd0265e7d94e3dcf1a0104e62777797e0b2cfe81c">
+  <!ENTITY pop-gtk-theme-md5sum     "c25c5c72cebd19d8442df259b24d71fe">
+  <!ENTITY pop-gtk-theme-extracted  "12.1M">
+  <!ENTITY pop-gtk-theme-buildsize  "15.1M">
+  <!ENTITY pop-gtk-theme-buildtime  "less than 0.5 SBU">
+
+  <!ENTITY cosmic-overlay "https://raw.githubusercontent.com/fsvm88/cosmic-overlay/main/cosmic-base">
+  <!ENTITY pop-gtk-theme-patch "remove-gtk2-gtk3.patch">
+  <!ENTITY pop-gtk-theme-patch-url "&cosmic-overlay;/pop-gtk-theme/files/&pop-gtk-theme-patch;">
+  <!--"https://raw.githubusercontent.com/fsvm88/cosmic-overlay/main/cosmic-base/pop-gtk-theme/files/remove-gtk2-gtk3.patch"-->
+]>
+ <sect1 id="pop-gtk-theme" xreflabel="Pop-gtk-theme-&pop-gtk-theme-version;">
+    <?dbhtml filename="pop-gtk-theme.html"?>
+
+      <title>Pop-gtk-theme-&pop-gtk-theme-version;</title>
+
+      <indexterm zone="pop-gtk-theme">
+          <primary sortas="a-Pop-gtk-theme">Pop-gtk-theme</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>PopOS GTK theme for COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&pop-gtk-theme-url;"/></para>
+        </listitem>
+
+        <listitem>
+          <para>Download SHA256 Sum: &pop-gtk-theme-sha256sum;</para>
+        </listitem>
+
+        <listitem>
+          <para>Download Size: &pop-gtk-theme-size;</para>
+        </listitem>
+
+        <listitem>
+          <para>Estimated Disk Space: &pop-gtk-theme-buildsize;</para>
+        </listitem>
+
+        <listitem>
+          <para>Estimated Build Time: &pop-gtk-theme-buildtime;</para>
+        </listitem>
+
+        <listitem>
+          <para>Required patch: <ulink url="&pop-gtk-theme-patch-url;"/></para>
+        </listitem>
+
+      </itemizedlist>
+      <bridgehead renderas="sect3">Pop-gtk-theme Dependencies</bridgehead>
+        <bridgehead renderas="sect4">Required</bridgehead>
+          <para>rustc, cargo-c, meson, ninja, sassc, glib, gdk-pixbuf, and gtk4</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Pop-gtk-theme</title>
+
+    <para>Prepare Pop-gtk-theme for compilation:</para>
+
+      <para>Patch a vulnerability, issue:</para>
+
+        <screen><userinput remap="pre">patch -Np1 -i ../&pop-gtk-theme-patch;</userinput></screen>
+
+      <para>Now Configure the Package, issue:</para>
+
+        <screen><userinput remap="configure">meson setup Ybuild --prefix=/usr --buildtype=release \
+            -D icons=true -D gnome-shell=true \
+            -D gnome-shell-gresource=true     \
+            -D gtk4=true -D sounds=true       \
+            -D sessions=true -D default=true  \
+            -D dark=true -D light=true</userinput></screen>
+
+      <para>To Compile the Package, issue:</para>
+        <screen><userinput remap="make">ninja -C Ybuild</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+        <screen><userinput remap="install">ninja -C Ybuild install</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Pop-gtk-theme</title>
+
+        <segmentedlist>
+          <segtitle>Installed programs</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>None</seg>
+          <seg>None</seg>
+          <seg>/usr/share/sounds, /usr/share/themes, and /usr/share/gnome-shell/theme</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

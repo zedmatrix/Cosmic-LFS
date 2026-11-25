@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY libqalculate-version    "5.13.1">
+  <!ENTITY libqalculate-size       "3,501 KB">
+  <!ENTITY libqalculate-url        "https://github.com/Qalculate/libqalculate/releases/download/v5.13.1/libqalculate-5.13.1.tar.gz">
+  <!ENTITY libqalculate-sha256sum  "cf8d3eaf3d85030115701e997b6585e69573e71add88e7758486c5d1b01d3cc3">
+  <!ENTITY libqalculate-md5sum     "6281f37e232de9367db370bd264bdc64">
+  <!ENTITY libqalculate-extracted  "15.1M">
+  <!ENTITY libqalculate-buildsize  "168.3M">
+  <!ENTITY libqalculate-buildtime  "less than 1.0 SBU">
+]>
+ <sect1 id="libqalculate" xreflabel="Libqalculate-&libqalculate-version;">
+    <?dbhtml filename="libqalculate.html"?>
+
+      <title>Libqalculate-&libqalculate-version;</title>
+
+      <indexterm zone="libqalculate">
+          <primary sortas="a-Libqalculate">Libqalculate</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>a library that provides functions for a multi-purpose calculator.</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&libqalculate-http-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &libqalculate-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &libqalculate-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &libqalculate-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &libqalculate-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>      <bridgehead renderas="sect3">Libqalculate Dependencies</bridgehead>        <bridgehead renderas="sect4">Required</bridgehead>
+          <para>curl libxml2 icu</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Libqalculate</title>
+
+    <para>Prepare Libqalculate for compilation:</para>
+
+      <para>Now Configure the Package, issue:</para>
+
+        <screen><userinput remap="configure">./configure --prefix=/usr --disable-static \
+  --docdir=/usr/share/doc/libqalculate-&libqalculate-version;
+</userinput></screen>
+
+      <para>To Compile the Package, issue:</para>
+
+        <screen><userinput remap="make">make
+</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">make DESTDIR=${DESTDIR} install
+</userinput></screen>
+
+        <screen><userinput remap="post">${YBLD}/ydest-strip-x64.sh;
+rm -v /usr/lib/libqalculate.la
+</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Libqalculate</title>
+
+        <segmentedlist>
+          <segtitle>Installed programs</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>PROGRAMS</seg>
+          <seg>LIBRARIES</seg>
+          <seg>DIRECTORIES</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

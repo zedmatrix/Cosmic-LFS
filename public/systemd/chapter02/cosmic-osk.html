@@ -1,0 +1,174 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      2.17.&nbsp;Cosmic-osk-1.11.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL-NS Stylesheets Vsnapshot" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="blfs" id="blfs-1.0-cosmic">
+    <div class="navheader">
+      <h4>
+        Cosmic From Scratch - Version 1.0-cosmic
+      </h4>
+      <h3>
+        Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="cosmic-osd.html" title=
+          "Cosmic-osd-1.11.0">Prev</a>
+          <p>
+            Cosmic-osd-1.11.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="xdg-desktop-portal-cosmic.html" title=
+          "Xdg-desktop-portal-cosmic-1.11.0">Next</a>
+          <p>
+            Xdg-desktop-portal-cosmic-1.11.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter02.html" title=
+          "Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Cosmic From Scratch - Version 1.0-cosmic">Home</a>
+        </li>
+      </ul>
+    </div>
+    <h1 class="sect1">
+      <a id="cosmic-osk" name="cosmic-osk"></a>2.17. Cosmic-osk-1.11.0
+    </h1>
+    <div class="sect1" lang="en" xml:lang="en">
+      <div class="package" lang="en" xml:lang="en">
+        <p>
+          On-Screen Keyboard for COSMIC DE
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Download HTTP: <a class="ulink" href=
+                "https://github.com/fsvm88/cosmic-overlay/releases/download/1.11.0/cosmic-osk-1.11.0.full.tar.zst">
+                https://github.com/fsvm88/cosmic-overlay/releases/download/1.11.0/cosmic-osk-1.11.0.full.tar.zst</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download SHA256 Sum:
+                90ba8c08ff85450974dfb8c83bc59f750f140720152a0ff29a5afa56f46bee43
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download Size: 57,651 KB
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Disk Space: 2.5G
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Build Time: 2.53 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Cosmic-osk Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p>
+          rustc, cargo-c, libxkbcommon, and wayland
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          2.17.1. Installation of Cosmic-osk
+        </h2>
+        <p>
+          Prepare Cosmic-osk for compilation:
+        </p>
+        <p>
+          Fetch the dependencies, ensuring the exact versions recorded in the
+          existing <code class="filename">Cargo.lock</code> file are used:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">cargo fetch --locked</kbd></pre>
+        <p>
+          To Compile the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">cargo build --profile release --frozen --all</kbd></pre>
+        <p>
+          Now Install the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">install -vDm755 target/release/cosmic-osk /usr/bin/cosmic-osk</kbd></pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          2.17.2. Contents of Cosmic-osk
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed program:</strong>
+              <span class="segbody">cosmic-osk</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed libraries:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed directory:</strong>
+              <span class="segbody">/usr/bin</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="cosmic-osd.html" title=
+          "Cosmic-osd-1.11.0">Prev</a>
+          <p>
+            Cosmic-osd-1.11.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="xdg-desktop-portal-cosmic.html" title=
+          "Xdg-desktop-portal-cosmic-1.11.0">Next</a>
+          <p>
+            Xdg-desktop-portal-cosmic-1.11.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter02.html" title=
+          "Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Cosmic From Scratch - Version 1.0-cosmic">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-applets-version    "1.11.0">
+  <!ENTITY cosmic-applets-size       "82,626 KB">
+  <!ENTITY cosmic-applets-url        "&cosmic-url;/1.11.0/cosmic-applets-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-applets-sha256sum  "ecd003c7bbaa9dc413fc5d095fd343a330517a640547db315e2390ea7b371c0c">
+  <!ENTITY cosmic-applets-md5sum     "9968a8a75720c436e766aec8226243e5">
+  <!ENTITY cosmic-applets-extracted  "1.1G">
+  <!ENTITY cosmic-applets-buildsize  "3.6G">
+  <!ENTITY cosmic-applets-buildtime  "5.14 SBU">
+]>
+ <sect1 id="cosmic-applets" xreflabel="Cosmic-applets-&cosmic-applets-version;">
+    <?dbhtml filename="cosmic-applets.html"?>
+
+      <title>Cosmic-applets-&cosmic-applets-version;</title>
+
+      <indexterm zone="cosmic-applets">
+          <primary sortas="a-Cosmic-applets">Cosmic-applets</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>applets for COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-applets-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-applets-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &cosmic-applets-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-applets-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &cosmic-applets-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>
+        <bridgehead renderas="sect3">Cosmic-applets Dependencies</bridgehead>
+          <bridgehead renderas="sect4">Required</bridgehead>
+          <para>rustc cargo-c cosmic-icons pulseaudio pipewire dbus libxkbcommon libinput</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-applets</title>
+
+    <para>Prepare Cosmic-applets for compilation:</para>
+
+      <para>Now Configure the Package, issue:</para>
+
+        <screen><userinput remap="configure">sed "s|@bindir@|${EPREFIX}/usr/bin|" \
+  cosmic-applet-status-area/data/dbus-1/com.system76.CosmicStatusNotifierWatcher.service.in \
+  > cosmic-applet-status-area/data/dbus-1/com.system76.CosmicStatusNotifierWatcher.service &amp;&amp;
+
+sed "s|@bindir@|${EPREFIX}/usr/bin|" \
+  cosmic-applet-status-area/data/com.system76.CosmicStatusNotifierWatcher.service.in \
+  > cosmic-applet-status-area/data/com.system76.CosmicStatusNotifierWatcher.service &amp;&amp;
+
+cargo fetch --locked</userinput></screen>
+
+      <para>To Compile the Package, issue:</para>
+
+        <screen><userinput remap="make">cargo build --release --frozen</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+<screen><userinput remap="install">install -vDm755 target/release/cosmic-applets /usr/bin/cosmic-applets &amp;&amp;
+
+install -vDm644 cosmic-applet-status-area/data/com.system76.CosmicStatusNotifierWatcher.service \
+  /usr/lib/systemd/user/com.system76.CosmicStatusNotifierWatcher.service &amp;&amp;
+
+install -vDm644 cosmic-applet-status-area/data/dbus-1/com.system76.CosmicStatusNotifierWatcher.service \
+  /usr/share/dbus-1/services/com.system76.CosmicStatusNotifierWatcher.service &amp;&amp;
+
+install -vDm644 data/com.system76.CosmicApplets.metainfo.xml /usr/share/metainfo &amp;&amp;
+
+cp -rv cosmic-app-list/data/default_schema/* /usr/share/cosmic/</userinput></screen>
+
+    <para>Now, as the <systemitem class="username">root</systemitem> user, create
+      the symlinks to the multicall binary, install the icons, and install the
+      desktop files:</para>
+
+<screen role="root"><userinput remap="install">for applet in cosmic-app-list cosmic-applet-a11y cosmic-applet-audio \
+    cosmic-applet-battery cosmic-applet-bluetooth \
+    cosmic-applet-input-sources cosmic-applet-minimize \
+    cosmic-applet-network cosmic-applet-notifications \
+    cosmic-applet-osk cosmic-applet-power \
+    cosmic-applet-status-area cosmic-applet-tiling \
+    cosmic-applet-time cosmic-applet-workspaces \
+    cosmic-panel-button
+do
+  ln -sfrv /usr/bin/cosmic-applets /usr/bin/$applet
+done
+
+for dir in cosmic-app-list cosmic-applet-a11y cosmic-applet-audio \
+    cosmic-applet-battery cosmic-applet-bluetooth \
+    cosmic-applet-input-sources cosmic-applet-minimize \
+    cosmic-applet-network cosmic-applet-notifications \
+    cosmic-applet-osk cosmic-applet-power \
+    cosmic-applet-status-area cosmic-applet-tiling \
+    cosmic-applet-time cosmic-applet-workspaces \
+    cosmic-panel-app-button cosmic-panel-launcher-button \
+    cosmic-panel-workspaces-button
+do
+  if [ -d $dir/data/icons ]; then
+    cp -rv $dir/data/icons/* /usr/share/icons/hicolor
+  fi
+done</userinput></screen>
+
+      <note>
+        <para>Verify that the build generated the desktop files for all 18 applets and
+        buttons. The following command should print <computeroutput>18</computeroutput>:
+        </para>
+        <screen><userinput>ls target/xdgen/*.desktop | wc -l</userinput></screen>
+      </note>
+
+<screen role="root"><userinput remap="install">install -vDm644 target/xdgen/*.desktop /usr/share/applications/</userinput></screen>
+
+   </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-applets</title>
+
+        <segmentedlist>
+          <segtitle>Installed programs</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>PROGRAMS</seg>
+          <seg>LIBRARIES</seg>
+          <seg>DIRECTORIES</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

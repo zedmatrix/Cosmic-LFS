@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-app-library-version    "1.11.0">
+  <!ENTITY cosmic-app-library-size       "67,569 KB">
+  <!ENTITY cosmic-app-library-url        "&cosmic-url;/1.11.0/cosmic-app-library-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-app-library-sha256sum  "a2ca8e96257615eb76238f5cad1ac741fea9e7ee00de91974dbf0ac6512d06fc">
+  <!ENTITY cosmic-app-library-md5sum     "913e472193b4204f627be3dc0b2a389e">
+  <!ENTITY cosmic-app-library-extracted  "900.9M">
+  <!ENTITY cosmic-app-library-buildsize  "2.7G">
+  <!ENTITY cosmic-app-library-buildtime  "2.36 SBU">
+]>
+ <sect1 id="cosmic-app-library" xreflabel="Cosmic-app-library-&cosmic-app-library-version;">
+    <?dbhtml filename="cosmic-app-library.html"?>
+
+      <title>Cosmic-app-library-&cosmic-app-library-version;</title>
+
+      <indexterm zone="cosmic-app-library">
+          <primary sortas="a-Cosmic-app-library">Cosmic-app-library</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>app library for COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-app-library-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-app-library-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &cosmic-app-library-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-app-library-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &cosmic-app-library-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>
+      <bridgehead renderas="sect3">Cosmic-app-library Dependencies</bridgehead>
+        <bridgehead renderas="sect4">Required</bridgehead>
+          <para>rustc cargo-c</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-app-library</title>
+
+    <para>Prepare Cosmic-app-library for compilation:</para>
+
+      <para>Now Configure the Package, issue:</para>
+
+        <screen><userinput remap="configure">cargo fetch --locked</userinput></screen>
+
+      <para>To Compile the Package, issue:</para>
+
+        <screen><userinput remap="make">export LOCKSTEP_XML_PATH="${PWD}/vendor/atspi-common/xml"
+cargo build --release --offline
+</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vDm755 target/release/cosmic-app-library /usr/bin/cosmic-app-library
+
+install -vDm644 data/com.system76.CosmicAppLibrary.desktop \
+  /usr/share/applications/com.system76.CosmicAppLibrary.desktop
+
+install -vDm644 data/com.system76.CosmicAppLibrary.metainfo.xml \
+  /usr/share/metainfo/
+
+cp -v data/icons/com.system76.CosmicAppLibrary.svg /usr/share/icons/hicolor/scalable/apps/
+</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-app-library</title>
+
+        <segmentedlist>
+          <segtitle>Installed programs</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>PROGRAMS</seg>
+          <seg>LIBRARIES</seg>
+          <seg>DIRECTORIES</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

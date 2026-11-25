@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-screenshot-version    "1.11.0">
+  <!ENTITY cosmic-screenshot-size       "11,100 KB">
+  <!ENTITY cosmic-screenshot-url        "&cosmic-url;/1.11.0/cosmic-screenshot-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-screenshot-sha256sum  "fffe596064273ea364666f7056f87df33dbade3972f07039a791519712eb4e8f">
+  <!ENTITY cosmic-screenshot-md5sum     "34233adb0c42ad2392d0cd8a6b4bc5e0">
+  <!ENTITY cosmic-screenshot-extracted  "108M">
+  <!ENTITY cosmic-screenshot-buildsize  "558.5M">
+  <!ENTITY cosmic-screenshot-buildtime  "less than 1.0 SBU">
+]>
+ <sect1 id="cosmic-screenshot" xreflabel="Cosmic-screenshot-&cosmic-screenshot-version;">
+    <?dbhtml filename="cosmic-screenshot.html"?>
+
+      <title>Cosmic-screenshot-&cosmic-screenshot-version;</title>
+
+      <indexterm zone="cosmic-screenshot">
+          <primary sortas="a-Cosmic-screenshot">Cosmic-screenshot</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>utility for capturing screenshots via XDG Desktop Portal from COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-screenshot-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-screenshot-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &cosmic-screenshot-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-screenshot-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &cosmic-screenshot-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>
+      <bridgehead renderas="sect3">Cosmic-screenshot Dependencies</bridgehead>
+      <bridgehead renderas="sect4">Required</bridgehead>
+          <para>rustc, cargo-c, cosmic-icons, and xdg-desktop-portal-cosmic</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-screenshot</title>
+
+    <para>Prepare Cosmic-screenshot for compilation:</para>
+
+    <para>Fetch the dependencies, ensuring the exact versions recorded in the
+      existing <filename>Cargo.lock</filename> file are used:</para>
+
+        <screen><userinput remap="configure">cargo fetch --locked</userinput></screen>
+
+      <para>To Compile the Package, issue:</para>
+
+        <screen><userinput remap="make">cargo build --profile release --frozen</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vDm755 target/release/cosmic-screenshot /usr/bin/cosmic-screenshot &amp;&amp;
+
+install -vDm644 resources/com.system76.CosmicScreenshot.desktop \
+  /usr/share/applications/ &amp;&amp;
+
+cp -rv resources/icons/hicolor/* /usr/share/icons/hicolor/</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-screenshot</title>
+
+        <segmentedlist>
+          <segtitle>Installed program</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>cosmic-screenshot</seg>
+          <seg>None</seg>
+          <seg>/usr/bin, /usr/share/applications, and /usr/share/icons/hicolor</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

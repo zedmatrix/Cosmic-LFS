@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-wallpapers-version    "1.11.0">
+  <!ENTITY cosmic-wallpapers-size       "16,751 KB">
+  <!ENTITY cosmic-wallpapers-url        "&cosmic-url;/1.11.0/cosmic-wallpapers-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-wallpapers-sha256sum  "05b8e107deef70ead863e5a4497898141dd219db66abde01f5931fd561925653">
+  <!ENTITY cosmic-wallpapers-md5sum     "813944d5bf8787ef244da73d7ed5961f">
+  <!ENTITY cosmic-wallpapers-extracted  "16.7M">
+  <!ENTITY cosmic-wallpapers-buildsize  "16.7M">
+  <!ENTITY cosmic-wallpapers-buildtime  "less than 0.5 SBU">
+]>
+ <sect1 id="cosmic-wallpapers" xreflabel="Cosmic-wallpapers-&cosmic-wallpapers-version;">
+    <?dbhtml filename="cosmic-wallpapers.html"?>
+
+      <title>Cosmic-wallpapers-&cosmic-wallpapers-version;</title>
+
+      <indexterm zone="cosmic-wallpapers">
+          <primary sortas="a-Cosmic-wallpapers">Cosmic-wallpapers</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>Wallpapers for the COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-wallpapers-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-wallpapers-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &cosmic-wallpapers-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-wallpapers-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &cosmic-wallpapers-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-wallpapers</title>
+
+    <para>Prepare Cosmic-wallpapers for compilation:</para>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">mkdir -pv /usr/share/backgrounds/cosmic &amp;&amp;
+cp -v original/* /usr/share/backgrounds/cosmic/</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-wallpapers</title>
+
+        <segmentedlist>
+          <segtitle>Installed programs</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>None</seg>
+          <seg>None</seg>
+          <seg>/usr/share/backgrounds/cosmic</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<chapter id="building-cosmic" xreflabel="Chapter&nbsp;2">
+  <?dbhtml dir="chapter02"?>
+  <?dbhtml filename="chapter02.html"?>
+
+  <title>Compiling Cosmic Desktop</title>
+
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pop-icon-theme.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-icons.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-app-library.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-applets.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-bg.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-comp.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-term.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-files.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-edit.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-viewer.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-player.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-wallpapers.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-randr.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-monitor.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-notifications.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-osd.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-osk.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="xdg-desktop-portal-cosmic.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-screenshot.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-sound-theme.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-panel.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-workspaces.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-initial-setup.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pop-launcher.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-launcher.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-settings-daemon.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-settings.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pop-gtk-theme.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="pop-fonts.xml"/>
+  <xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href="cosmic-session.xml"/>
+
+  <!--<xi:include xmlns:xi="http://www.w3.org/2001/XInclude" href=""/>-->
+
+</chapter>

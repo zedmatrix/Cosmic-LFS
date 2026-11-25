@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      2.5.&nbsp;Cosmic-bg-1.11.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL-NS Stylesheets Vsnapshot" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="blfs" id="blfs-1.0-cosmic">
+    <div class="navheader">
+      <h4>
+        Cosmic From Scratch - Version 1.0-cosmic
+      </h4>
+      <h3>
+        Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="cosmic-applets.html" title=
+          "Cosmic-applets-1.11.0">Prev</a>
+          <p>
+            Cosmic-applets-1.11.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="cosmic-comp.html" title=
+          "Cosmic-comp-1.11.0">Next</a>
+          <p>
+            Cosmic-comp-1.11.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter02.html" title=
+          "Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Cosmic From Scratch - Version 1.0-cosmic">Home</a>
+        </li>
+      </ul>
+    </div>
+    <h1 class="sect1">
+      <a id="cosmic-bg" name="cosmic-bg"></a>2.5. Cosmic-bg-1.11.0
+    </h1>
+    <div class="sect1" lang="en" xml:lang="en">
+      <div class="package" lang="en" xml:lang="en">
+        <p>
+          display background service for COSMIC DE
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Download HTTP: <a class="ulink" href=
+                "https://github.com/fsvm88/cosmic-overlay/releases/download/1.11.0/cosmic-bg-1.11.0.full.tar.zst">
+                https://github.com/fsvm88/cosmic-overlay/releases/download/1.11.0/cosmic-bg-1.11.0.full.tar.zst</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download SHA256 Sum:
+                ae005bc41c5dd11e4901e314eec2b0c9d1c95f3bae94085c81cdd54caf3a004d
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download Size: 23,574 KB
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Disk Space: 966.6M
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Build Time: less than 1.0 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Cosmic-bg Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p>
+          dav1d rustc cargo-c libxkbcommon nasm
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          2.5.1. Installation of Cosmic-bg
+        </h2>
+        <p>
+          Prepare Cosmic-bg for compilation:
+        </p>
+        <p>
+          To Compile the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">cargo build --release --no-default-features
+</kbd></pre>
+        <p>
+          Now Install the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">install -vDm755 target/release/cosmic-bg /usr/bin/cosmic-bg &amp;&amp;
+
+install -vd /usr/share/cosmic/com.system76.CosmicBackground/v1 &amp;&amp;
+
+install -vm644 data/v1/* -t /usr/share/cosmic/com.system76.CosmicBackground/v1/</kbd></pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          2.5.2. Contents of Cosmic-bg
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed programs:</strong>
+              <span class="segbody">cosmic-bg</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed libraries:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed directories:</strong>
+              <span class="segbody">/usr/bin, and /usr/share/cosmic</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="cosmic-applets.html" title=
+          "Cosmic-applets-1.11.0">Prev</a>
+          <p>
+            Cosmic-applets-1.11.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="cosmic-comp.html" title=
+          "Cosmic-comp-1.11.0">Next</a>
+          <p>
+            Cosmic-comp-1.11.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter02.html" title=
+          "Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Cosmic From Scratch - Version 1.0-cosmic">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

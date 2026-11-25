@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      1.1.&nbsp;Preparing Cosmic
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL-NS Stylesheets Vsnapshot" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="blfs" id="blfs-1.0-cosmic">
+    <div class="navheader">
+      <h4>
+        Cosmic From Scratch - Version 1.0-cosmic
+      </h4>
+      <h3>
+        Chapter&nbsp;1.&nbsp;Preparing the Host System
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="intro.html" title=
+          "Preparing the Host System">Prev</a>
+          <p>
+            Preparing the Host System
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="../part2.html" title=
+          "Building Cosmic">Next</a>
+          <p>
+            Building Cosmic
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="intro.html" title=
+          "Chapter&nbsp;1.&nbsp;Preparing the Host System">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Cosmic From Scratch - Version 1.0-cosmic">Home</a>
+        </li>
+      </ul>
+    </div>
+    <h1 class="sect1">
+      <a id="ch-preparing-cosmic" name="ch-preparing-cosmic"></a>1.1.
+      Preparing Cosmic
+    </h1>
+    <div class="sect1" lang="en" xml:lang="en">
+      <p>
+        COSMIC is a Wayland desktop environment, so no Xorg server is
+        required. Before building the packages in this chapter, make sure the
+        following are installed and working: a recent Rust toolchain, Mesa
+        (with GBM and EGL), libinput, libxkbcommon, Linux-PAM, D-Bus, polkit,
+        and systemd (or another seat manager such as seatd). Each COSMIC
+        package is a standalone Cargo project with vendored crates, so the
+        packages can be built in any order.
+      </p>
+      <div class="sect2" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          1.1.1. Extraction Method
+        </h2>
+        <p>
+          The source tarballs are compressed with zstd using a 2 GB
+          long-distance window. The <span class=
+          "command"><strong>zstd</strong></span> default limit is 128 MB, so
+          decompression needs an extra option and about 2 GB of free RAM:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">tar --use-compress-program="zstd -d --long=31" \
+        -xf ../<em class=
+"replaceable"><code>archive-name</code></em>.tar.zst</kbd></pre>
+        <p>
+          Without the option, <span class=
+          "command"><strong>tar</strong></span> fails with <code class=
+          "computeroutput">Frame requires too much memory for
+          decoding</code>.
+        </p>
+      </div>
+      <div class="sect2" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          1.1.2. Building with Cargo
+        </h2>
+        <p>
+          The tarballs include a <code class="filename">vendor</code>
+          directory, so the builds work offline. Use <code class=
+          "option">--frozen</code> (or <code class="option">--offline
+          --locked</code>) so Cargo doesn't try to reach the network or
+          change <code class="filename">Cargo.lock</code>.
+        </p>
+      </div>
+      <div class="sect2" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          1.1.3. Workaround for packages using atspi-common
+        </h2>
+        <p>
+          Some packages vendor the <code class="filename">atspi-common</code>
+          crate, whose <code class="function">validate</code> macro needs to
+          be told where its D-Bus XML files are. Run this from the top of the
+          source tree, before building:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">export LOCKSTEP_XML_PATH=$(pwd)/vendor/atspi-common/xml</kbd></pre>
+        <p>
+          Run <span class="command"><strong>unset
+          LOCKSTEP_XML_PATH</strong></span> after the build so the variable
+          doesn't affect other packages.
+        </p>
+      </div>
+      <div class="sect2" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          1.1.4. Rendering in a Virtual Machine
+        </h2>
+        <p>
+          In a virtual machine without GPU acceleration, the wgpu renderer
+          may fail with a shader validation error. If so, create <code class=
+          "filename">/etc/environment.d/50-cosmic-render.conf</code> as the
+          <code class="systemitem">root</code> user:
+        </p>
+        <pre class="root"><kbd class=
+        "command">cat &gt; /etc/environment.d/50-cosmic-render.conf &lt;&lt; "EOF"
+        <code class="literal">WGPU_BACKEND=gl
+          LIBGL_ALWAYS_SOFTWARE=1
+          GALLIUM_DRIVER=llvmpipe
+          LANG=en_US.UTF-8</code>
+        EOF</kbd></pre>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="intro.html" title=
+          "Preparing the Host System">Prev</a>
+          <p>
+            Preparing the Host System
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="../part2.html" title=
+          "Building Cosmic">Next</a>
+          <p>
+            Building Cosmic
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="intro.html" title=
+          "Chapter&nbsp;1.&nbsp;Preparing the Host System">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Cosmic From Scratch - Version 1.0-cosmic">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

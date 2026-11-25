@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY pop-icon-theme-version    "v3.5.1">
+  <!ENTITY pop-icon-theme-size       "18,343 KB">
+  <!ENTITY pop-icon-theme-url        "https://github.com/pop-os/icon-theme/archive/refs/tags/v3.5.1.tar.gz">
+  <!ENTITY pop-icon-theme-sha256sum  "92e73f252e5e9c8a1124623a7d421410ef43c798a4a992955e6eb4f666f5c8a0">
+  <!ENTITY pop-icon-theme-md5sum     "9b694cc5816a6c125f68c60fe3a742b3">
+  <!ENTITY pop-icon-theme-extracted  "80.1M">
+  <!ENTITY pop-icon-theme-buildsize  "80.5M">
+  <!ENTITY pop-icon-theme-buildtime  "less than 0.5 SBU">
+]>
+ <sect1 id="pop-icon-theme" xreflabel="Pop-icon-theme-&pop-icon-theme-version;">
+    <?dbhtml filename="pop-icon-theme.html"?>
+
+      <title>Pop-icon-theme-&pop-icon-theme-version;</title>
+
+      <indexterm zone="pop-icon-theme">
+          <primary sortas="a-Pop-icon-theme">Pop-icon-theme</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>PopOS icon theme for COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&pop-icon-theme-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &pop-icon-theme-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &pop-icon-theme-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &pop-icon-theme-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &pop-icon-theme-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>
+        <bridgehead renderas="sect3">Pop-icon-theme Dependencies</bridgehead>
+          <bridgehead renderas="sect4">Required</bridgehead>
+          <para>adwaita-icon-theme hicolor-icon-theme meson ninja</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Pop-icon-theme</title>
+
+    <para>Prepare Pop-icon-theme for compilation:</para>
+
+      <para>Now Configure the Package, issue:</para>
+
+        <screen><userinput remap="configure">meson setup Ybuild --prefix=/usr</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">ninja -C Ybuild install</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Pop-icon-theme</title>
+
+        <segmentedlist>
+          <segtitle>Installed programs</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>PROGRAMS</seg>
+          <seg>LIBRARIES</seg>
+          <seg>DIRECTORIES</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

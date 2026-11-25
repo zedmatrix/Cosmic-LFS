@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-idle-version    "1.11.0">
+  <!ENTITY cosmic-idle-size       "20,065 KB">
+  <!ENTITY cosmic-idle-url        "https://github.com/fsvm88/cosmic-overlay/releases/download/1.11.0/cosmic-idle-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-idle-sha256sum  "d3b0e1b2241a5e07ca3e6644b198076fb3ee1accfe02c40d90e2183b6936ece3">
+  <!ENTITY cosmic-idle-md5sum     "164b7fdc18a08d83d915466803121d47">
+  <!ENTITY cosmic-idle-extracted  "353.8M">
+  <!ENTITY cosmic-idle-buildsize  "911.6M">
+  <!ENTITY cosmic-idle-buildtime  "less than 1.0 SBU">
+]>
+ <sect1 id="cosmic-idle" xreflabel="Cosmic-idle-&cosmic-idle-version;">
+    <?dbhtml filename="cosmic-idle.html"?>
+
+      <title>Cosmic-idle-&cosmic-idle-version;</title>
+
+      <indexterm zone="cosmic-idle">
+          <primary sortas="a-Cosmic-idle">Cosmic-idle</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>screen idle daemon for COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-idle-http-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-idle-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &cosmic-idle-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-idle-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &cosmic-idle-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>      <bridgehead renderas="sect3">Cosmic-idle Dependencies</bridgehead>        <bridgehead renderas="sect4">Required</bridgehead>
+          <para>rustc cargo-c wayland libxkbcommon</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-idle</title>
+
+    <para>Prepare Cosmic-idle for compilation:</para>
+
+      <para>Now Configure the Package, issue:</para>
+
+        <screen><userinput remap="configure">cargo fetch --locked
+</userinput></screen>
+
+      <para>To Compile the Package, issue:</para>
+
+        <screen><userinput remap="make">cargo build --release --frozen
+</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vDm755 target/release/cosmic-idle /usr/bin/cosmic-idle
+</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-idle</title>
+
+        <segmentedlist>
+          <segtitle>Installed programs</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>PROGRAMS</seg>
+          <seg>LIBRARIES</seg>
+          <seg>DIRECTORIES</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

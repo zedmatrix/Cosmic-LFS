@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-comp-version    "1.11.0">
+  <!ENTITY cosmic-comp-size       "50,727 KB">
+  <!ENTITY cosmic-comp-url        "&cosmic-url;/1.11.0/cosmic-comp-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-comp-sha256sum  "3fc9b4af031a1d09f8db302c4dff9e5442d782b0ed582209039f7f43ea5ee96a">
+  <!ENTITY cosmic-comp-md5sum     "2f03e6a16b24de4d0f8310459c33946f">
+  <!ENTITY cosmic-comp-extracted  "764.3M">
+  <!ENTITY cosmic-comp-buildsize  "2.6G">
+  <!ENTITY cosmic-comp-buildtime  "5.58 SBU">
+]>
+ <sect1 id="cosmic-comp" xreflabel="Cosmic-comp-&cosmic-comp-version;">
+    <?dbhtml filename="cosmic-comp.html"?>
+
+      <title>Cosmic-comp-&cosmic-comp-version;</title>
+
+      <indexterm zone="cosmic-comp">
+          <primary sortas="a-Cosmic-comp">Cosmic-comp</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>compositor for COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-comp-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-comp-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &cosmic-comp-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-comp-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &cosmic-comp-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>
+      <bridgehead renderas="sect3">Cosmic-comp Dependencies</bridgehead>
+      <bridgehead renderas="sect4">Required</bridgehead>
+          <para>fontconfig, mesa, libxcb, pixman, libdisplay-info, seatd,
+            libinput, libxcb, libxkbcommon, wayland, and wayland-protocols</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-comp</title>
+
+    <para>Prepare Cosmic-comp for compilation:</para>
+
+      <para>To Build the Package, issue:</para>
+
+        <screen><userinput remap="make">cargo build --release</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vDm755 target/release/cosmic-comp /usr/bin/cosmic-comp &amp;&amp;
+
+install -vDm644 data/keybindings.ron \
+  /usr/share/cosmic/com.system76.CosmicSettings.Shortcuts/v1/defaults &amp;&amp;
+
+install -vDm644 data/tiling-exceptions.ron \
+  /usr/share/cosmic/com.system76.CosmicSettings.WindowRules/v1/tiling_exception_defaults </userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-comp</title>
+
+        <segmentedlist>
+          <segtitle>Installed programs</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>cosmic-comp</seg>
+          <seg>None</seg>
+          <seg>/usr/bin, and /usr/share/cosmic</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

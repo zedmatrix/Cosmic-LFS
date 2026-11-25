@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY sound-theme-freedesktop-version    "0.8">
+  <!ENTITY sound-theme-freedesktop-size       "467 KB">
+  <!ENTITY sound-theme-freedesktop-url        "https://people.freedesktop.org/~mccann/dist/sound-theme-freedesktop-0.8.tar.bz2">
+  <!ENTITY sound-theme-freedesktop-sha256sum  "cb518b20eef05ec2e82dda1fa89a292c1760dc023aba91b8aa69bafac85e8a14">
+  <!ENTITY sound-theme-freedesktop-md5sum     "d7387912cfd275282d1ec94483cb2f62">
+  <!ENTITY sound-theme-freedesktop-extracted  "808.8K">
+  <!ENTITY sound-theme-freedesktop-buildsize  "924.2K">
+  <!ENTITY sound-theme-freedesktop-buildtime  "less than 0.5 SBU">
+]>
+ <sect1 id="sound-theme-freedesktop" xreflabel="Sound-theme-freedesktop-&sound-theme-freedesktop-version;">
+    <?dbhtml filename="sound-theme-freedesktop.html"?>
+
+      <title>Sound-theme-freedesktop-&sound-theme-freedesktop-version;</title>
+
+      <indexterm zone="sound-theme-freedesktop">
+          <primary sortas="a-Sound-theme-freedesktop">Sound-theme-freedesktop</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>Sound Theme Freedesktop package contains sound themes for the desktop.</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&sound-theme-freedesktop-http-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &sound-theme-freedesktop-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &sound-theme-freedesktop-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &sound-theme-freedesktop-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &sound-theme-freedesktop-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>      <bridgehead renderas="sect3">Sound-theme-freedesktop Dependencies</bridgehead>        <bridgehead renderas="sect4">Required</bridgehead>
+          <para>intltool</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Sound-theme-freedesktop</title>
+
+    <para>Prepare Sound-theme-freedesktop for compilation:</para>
+
+      <para>Now Configure the Package, issue:</para>
+
+        <screen><userinput remap="configure">./configure --prefix=/usr
+</userinput></screen>
+
+      <para>To Compile the Package, issue:</para>
+
+        <screen><userinput remap="make">make
+</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">make install
+</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Sound-theme-freedesktop</title>
+
+        <segmentedlist>
+          <segtitle>Installed programs</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>PROGRAMS</seg>
+          <seg>LIBRARIES</seg>
+          <seg>DIRECTORIES</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

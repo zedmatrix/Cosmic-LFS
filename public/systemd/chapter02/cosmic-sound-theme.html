@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      2.20.&nbsp;Cosmic-sound-theme-1.11.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL-NS Stylesheets Vsnapshot" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="blfs" id="blfs-1.0-cosmic">
+    <div class="navheader">
+      <h4>
+        Cosmic From Scratch - Version 1.0-cosmic
+      </h4>
+      <h3>
+        Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="cosmic-screenshot.html" title=
+          "Cosmic-screenshot-1.11.0">Prev</a>
+          <p>
+            Cosmic-screenshot-1.11.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="cosmic-panel.html" title=
+          "Cosmic-panel-1.11.0">Next</a>
+          <p>
+            Cosmic-panel-1.11.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter02.html" title=
+          "Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Cosmic From Scratch - Version 1.0-cosmic">Home</a>
+        </li>
+      </ul>
+    </div>
+    <h1 class="sect1">
+      <a id="cosmic-sound-theme" name="cosmic-sound-theme"></a>2.20.
+      Cosmic-sound-theme-1.11.0
+    </h1>
+    <div class="sect1" lang="en" xml:lang="en">
+      <div class="package" lang="en" xml:lang="en">
+        <p>
+          COSMIC DE Sound Theme
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Download HTTP: <a class="ulink" href=
+                "https://github.com/fsvm88/cosmic-overlay/releases/download/1.11.0/cosmic-sound-theme-1.11.0.full.tar.zst">
+                https://github.com/fsvm88/cosmic-overlay/releases/download/1.11.0/cosmic-sound-theme-1.11.0.full.tar.zst</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download SHA256 Sum:
+                489959d6dcba22f99e7b5da716424274ead61f1ae1d0d1ea946f84a00b9b70dd
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download Size: 1,757 KB
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Disk Space: 7.4M
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Build Time: less than 0.5 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          2.20.1. Installation of Cosmic-sound-theme
+        </h2>
+        <p>
+          Prepare Cosmic-sound-theme for compilation:
+        </p>
+        <p>
+          Change the theme name so we don't have to use the installer, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">sed -e 's/@ThemeName@/COSMIC/' src/index.theme.in &gt; src/index.theme
+</kbd></pre>
+        <p>
+          Now Install the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">mkdir -pv /usr/share/sounds/COSMIC &amp;&amp;
+
+cp -v src/index.theme /usr/share/sounds/COSMIC &amp;&amp;
+cp -rv src/stereo/. /usr/share/sounds/COSMIC/</kbd></pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          2.20.2. Contents of Cosmic-sound-theme
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed programs:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed libraries:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed directories:</strong>
+              <span class="segbody">/usr/share/sounds/COSMIC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="cosmic-screenshot.html" title=
+          "Cosmic-screenshot-1.11.0">Prev</a>
+          <p>
+            Cosmic-screenshot-1.11.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="cosmic-panel.html" title=
+          "Cosmic-panel-1.11.0">Next</a>
+          <p>
+            Cosmic-panel-1.11.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter02.html" title=
+          "Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Cosmic From Scratch - Version 1.0-cosmic">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY pop-fonts-version    "master">
+  <!ENTITY pop-fonts-size       "77,175 KB">
+  <!ENTITY pop-fonts-url        "https://github.com/pop-os/fonts.git">
+  <!ENTITY pop-fonts-sha256sum  " ">
+  <!ENTITY pop-fonts-md5sum     " ">
+  <!ENTITY pop-fonts-extracted  "101.1M">
+  <!ENTITY pop-fonts-buildsize  "101.1M">
+  <!ENTITY pop-fonts-buildtime  "less than 0.1 SBU">
+]>
+ <sect1 id="pop-fonts" xreflabel="Pop-fonts-&pop-fonts-version;">
+    <?dbhtml filename="pop-fonts.html"?>
+
+      <title>Pop-fonts-&pop-fonts-version;</title>
+
+      <indexterm zone="pop-fonts">
+          <primary sortas="a-Pop-fonts">Pop-fonts</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>System76 primarily uses two fonts, Fira and Roboto Slab.</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download GIT URL: <ulink url="&pop-fonts-url;"/></para>
+        </listitem>
+
+        <listitem>
+          <para>Download Size: &pop-fonts-size;</para>
+        </listitem>
+
+        <listitem>
+          <para>Estimated Disk Space: &pop-fonts-buildsize;</para>
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &pop-fonts-buildtime;</para>
+        </listitem>
+
+      </itemizedlist>
+        <bridgehead renderas="sect3">Pop-fonts Dependencies</bridgehead>
+          <bridgehead renderas="sect4">Required</bridgehead>
+            <para>fontconfig, and git</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Pop-fonts</title>
+
+    <para>Prepare Pop-fonts by cloning the repo:</para>
+      <screen><userinput remap="pre">git clone &pop-fonts-url; pop-fonts &amp;&amp;
+cd pop-fonts</userinput></screen>
+
+      <para>Now Install the fonts by copying:</para>
+
+      <screen><userinput remap="install">cp --no-preserve=mode,ownership -rv fira /usr/share/fonts/ &amp;&amp;
+cp --no-preserve=mode,ownership -rv roboto-slab /usr/share/fonts/</userinput></screen>
+
+      <para>Now Update the font cache, issue:</para>
+        <screen><userinput remap="post">fc-cache -v /usr/share/fonts/fira &amp;&amp;
+fc-cache -v /usr/share/fonts/roboto-slab
+</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Pop-fonts</title>
+
+        <segmentedlist>
+          <segtitle>Installed programs</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>None</seg>
+          <seg>None</seg>
+          <seg>/usr/share/fonts/{roboto-slab, fira}</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

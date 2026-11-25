@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-launcher-version    "1.11.0">
+  <!ENTITY cosmic-launcher-size       "69,094 KB">
+  <!ENTITY cosmic-launcher-url        "&cosmic-url;/1.11.0/cosmic-launcher-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-launcher-sha256sum  "7a1a111d413d157d3fe3e5039812b94678b9372676add63e81774aba3740c1c6">
+  <!ENTITY cosmic-launcher-md5sum     "7f3c49b0d8f75bdf61df332b6a11da56">
+  <!ENTITY cosmic-launcher-extracted  "913.2M">
+  <!ENTITY cosmic-launcher-buildsize  "2.7G">
+  <!ENTITY cosmic-launcher-buildtime  "3.19 SBU">
+]>
+ <sect1 id="cosmic-launcher" xreflabel="Cosmic-launcher-&cosmic-launcher-version;">
+    <?dbhtml filename="cosmic-launcher.html"?>
+
+      <title>Cosmic-launcher-&cosmic-launcher-version;</title>
+
+      <indexterm zone="cosmic-launcher">
+          <primary sortas="a-Cosmic-launcher">Cosmic-launcher</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>launcher for COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-launcher-url;"/></para>
+        </listitem>
+
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-launcher-sha256sum;</para>
+        </listitem>
+
+        <listitem>
+          <para>Download Size: &cosmic-launcher-size;</para>
+        </listitem>
+
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-launcher-buildsize;</para>
+        </listitem>
+
+        <listitem>
+          <para>Estimated Build Time: &cosmic-launcher-buildtime;</para>
+        </listitem>
+
+      </itemizedlist>
+      <bridgehead renderas="sect3">Cosmic-launcher Dependencies</bridgehead>
+      <bridgehead renderas="sect4">Required</bridgehead>
+          <para>rustc, cargo-c, libxkbcommon, intltool,
+            pop-launcher, wayland, and cosmic-icons</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-launcher</title>
+
+    <para>Prepare Cosmic-launcher for compilation:</para>
+
+    <para>Fetch the dependencies, ensuring the exact versions recorded in the
+      existing <filename>Cargo.lock</filename> file are used:</para>
+
+        <screen><userinput remap="configure">cargo fetch --locked</userinput></screen>
+
+      <para>To Compile the Package, issue:</para>
+
+        <screen><userinput remap="make">export LOCKSTEP_XML_PATH=${PWD}/vendor/atspi-common/xml &amp;&amp;
+
+cargo build --release</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vDm755 target/release/cosmic-launcher /usr/bin/cosmic-launcher &amp;&amp;
+
+install -vDm644 data/com.system76.CosmicLauncher.desktop \
+  /usr/share/applications/com.system76.CosmicLauncher.desktop &amp;&amp;
+
+install -vDm644 data/com.system76.CosmicLauncher.metainfo.xml \
+  /usr/share/metainfo/com.system76.CosmicLauncher.metainfo.xml &amp;&amp;
+
+install -vDm644 data/icons/com.system76.CosmicLauncher.svg \
+  /usr/share/icons/hicolor/scalable/apps/com.system76.CosmicLauncher.svg</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-launcher</title>
+
+        <segmentedlist>
+          <segtitle>Installed program</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>cosmic-launcher</seg>
+          <seg>None</seg>
+          <seg>/usr/bin, /usr/share/applications, /usr/share/metainfo,
+            and /usr/share/icons/hicolor/scalable/apps</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

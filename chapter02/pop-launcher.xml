@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY pop-launcher-version    "1.11.0">
+  <!ENTITY pop-launcher-size       "37,714 KB">
+  <!ENTITY pop-launcher-url        "&cosmic-url;/1.11.0/pop-launcher-1.11.0.full.tar.zst">
+  <!ENTITY pop-launcher-sha256sum  "dc0b40675b14fc007e87a8054e34078eb311ba20cab216445471517c010e1128">
+  <!ENTITY pop-launcher-md5sum     "cede5857cf094181ed610eef8d65f479">
+  <!ENTITY pop-launcher-extracted  "493.1M">
+  <!ENTITY pop-launcher-buildsize  "1.2G">
+  <!ENTITY pop-launcher-buildtime  "1.03 SBU">
+]>
+ <sect1 id="pop-launcher" xreflabel="Pop-launcher-&pop-launcher-version;">
+    <?dbhtml filename="pop-launcher.html"?>
+
+      <title>Pop-launcher-&pop-launcher-version;</title>
+
+      <indexterm zone="pop-launcher">
+          <primary sortas="a-Pop-launcher">Pop-launcher</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>Modular IPC-based desktop launcher service</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&pop-launcher-url;"/></para>
+        </listitem>
+
+        <listitem>
+          <para>Download SHA256 Sum: &pop-launcher-sha256sum;</para>
+        </listitem>
+
+        <listitem>
+          <para>Download Size: &pop-launcher-size;</para>
+        </listitem>
+
+        <listitem>
+          <para>Estimated Disk Space: &pop-launcher-buildsize;</para>
+        </listitem>
+
+        <listitem>
+          <para>Estimated Build Time: &pop-launcher-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>
+      <bridgehead renderas="sect3">Pop-launcher Dependencies</bridgehead>
+      <bridgehead renderas="sect4">Required</bridgehead>
+          <para>rustc, cargo-c, libqalculate, dbus, mesa, libxkbcommon,
+            xdg-utils, and pop-icon-theme</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Pop-launcher</title>
+
+    <para>Prepare Pop-launcher for compilation:</para>
+
+      <para>Now Configure the Package, issue:</para>
+
+        <screen><userinput remap="configure">cargo fetch --locked</userinput></screen>
+
+      <para>To Compile the Package, issue:</para>
+
+        <screen><userinput remap="make">cargo build --release -p pop-launcher-bin</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vDm755 target/release/pop-launcher-bin /usr/bin/pop-launcher &amp;&amp;
+
+(cd scripts &amp;&amp; find . -type f -exec install -Dm755 {} /usr/share/pop-launcher/scripts/{} \;) &amp;&amp;
+
+for p in calc cosmic_toplevel desktop_entries files find pop_shell pulse recent scripts terminal web; do
+  install -vdm755 "/usr/lib/pop-launcher/plugins/$p"
+  install -vm644 plugins/src/"$p"/*.ron "/usr/lib/pop-launcher/plugins/$p"/
+  ln -vsfr /usr/bin/pop-launcher "/usr/lib/pop-launcher/plugins/$p/${p/_/-}"
+done</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Pop-launcher</title>
+
+        <segmentedlist>
+          <segtitle>Installed programs</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>pop-launcher, (plugin links calc, cosmic_toplevel, desktop_entries,
+            files, find, pop_shell, pulse, recent, scripts, terminal, and web)</seg>
+          <seg>None</seg>
+          <seg>/usr/bin, /usr/share/pop-launcher/scripts, and /usr/lib/pop-launcher/plugins</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

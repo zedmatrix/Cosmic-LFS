@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-sound-theme-version    "1.11.0">
+  <!ENTITY cosmic-sound-theme-size       "1,757 KB">
+  <!ENTITY cosmic-sound-theme-url        "&cosmic-url;/1.11.0/cosmic-sound-theme-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-sound-theme-sha256sum  "489959d6dcba22f99e7b5da716424274ead61f1ae1d0d1ea946f84a00b9b70dd">
+  <!ENTITY cosmic-sound-theme-md5sum     "6941e23936d139d48c3ed94a2e3da3af">
+  <!ENTITY cosmic-sound-theme-extracted  "7.4M">
+  <!ENTITY cosmic-sound-theme-buildsize  "7.4M">
+  <!ENTITY cosmic-sound-theme-buildtime  "less than 0.5 SBU">
+]>
+ <sect1 id="cosmic-sound-theme" xreflabel="Cosmic-sound-theme-&cosmic-sound-theme-version;">
+    <?dbhtml filename="cosmic-sound-theme.html"?>
+
+      <title>Cosmic-sound-theme-&cosmic-sound-theme-version;</title>
+
+      <indexterm zone="cosmic-sound-theme">
+          <primary sortas="a-Cosmic-sound-theme">Cosmic-sound-theme</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>COSMIC DE Sound Theme</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-sound-theme-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-sound-theme-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &cosmic-sound-theme-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-sound-theme-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &cosmic-sound-theme-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-sound-theme</title>
+
+    <para>Prepare Cosmic-sound-theme for compilation:</para>
+
+      <para>Change the theme name so we don't have to use the installer, issue:</para>
+
+        <screen><userinput remap="configure">sed -e 's/@ThemeName@/COSMIC/' src/index.theme.in > src/index.theme
+</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">mkdir -pv /usr/share/sounds/COSMIC &amp;&amp;
+
+cp -v src/index.theme /usr/share/sounds/COSMIC &amp;&amp;
+cp -rv src/stereo/. /usr/share/sounds/COSMIC/</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-sound-theme</title>
+
+        <segmentedlist>
+          <segtitle>Installed programs</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>None</seg>
+          <seg>None</seg>
+          <seg>/usr/share/sounds/COSMIC</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-monitor-version    "1.11.0">
+  <!ENTITY cosmic-monitor-size       "80,104 KB">
+  <!ENTITY cosmic-monitor-url        "&cosmic-url;/1.11.0/cosmic-monitor-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-monitor-sha256sum  "b831549094fcf8353171b3f0e3567f7ed98ffb106360c799aa368f6f2b47ca15">
+  <!ENTITY cosmic-monitor-md5sum     "9447d9a4a884a2dc5e35afb318d77f81">
+  <!ENTITY cosmic-monitor-extracted  "1007.5M">
+  <!ENTITY cosmic-monitor-buildsize  "2.7G">
+  <!ENTITY cosmic-monitor-buildtime  "2.37 SBU">
+]>
+ <sect1 id="cosmic-monitor" xreflabel="Cosmic-monitor-&cosmic-monitor-version;">
+    <?dbhtml filename="cosmic-monitor.html"?>
+
+      <title>Cosmic-monitor-&cosmic-monitor-version;</title>
+
+      <indexterm zone="cosmic-monitor">
+          <primary sortas="a-Cosmic-monitor">Cosmic-monitor</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>system monitor for COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-monitor-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-monitor-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &cosmic-monitor-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-monitor-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &cosmic-monitor-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>
+      <bridgehead renderas="sect3">Cosmic-monitor Dependencies</bridgehead>
+      <bridgehead renderas="sect4">Required</bridgehead>
+          <para>rustc, cargo-c, and libxkbcommon</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-monitor</title>
+
+    <para>Prepare Cosmic-monitor for compilation:</para>
+
+    <para>Fetch the dependencies, ensuring the exact versions recorded in the
+      existing <filename>Cargo.lock</filename> file are used:</para>
+
+        <screen><userinput remap="pre">cargo fetch --locked</userinput></screen>
+
+      <para>To Compile the Package, issue:</para>
+
+        <screen><userinput remap="make">cargo build --profile release</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vDm755 target/release/cosmic-monitor /usr/bin/cosmic-monitor &amp;&amp;
+
+install -vDm644 target/xdgen/com.system76.CosmicMonitor.desktop \
+  /usr/share/applications/ &amp;&amp;
+
+install -vDm644 target/xdgen/com.system76.CosmicMonitor.metainfo.xml \
+  /usr/share/metainfo/ &amp;&amp;
+
+cp -rv res/icons/hicolor/* /usr/share/icons/hicolor/</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-monitor</title>
+
+        <segmentedlist>
+          <segtitle>Installed program</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>cosmic-monitor</seg>
+          <seg>None</seg>
+          <seg>/usr/bin, /usr/share/applications, /usr/share/metainfo, and /usr/share/icons/hicolor</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

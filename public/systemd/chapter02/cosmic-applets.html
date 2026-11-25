@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      2.4.&nbsp;Cosmic-applets-1.11.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL-NS Stylesheets Vsnapshot" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="blfs" id="blfs-1.0-cosmic">
+    <div class="navheader">
+      <h4>
+        Cosmic From Scratch - Version 1.0-cosmic
+      </h4>
+      <h3>
+        Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="cosmic-app-library.html" title=
+          "Cosmic-app-library-1.11.0">Prev</a>
+          <p>
+            Cosmic-app-library-1.11.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="cosmic-bg.html" title=
+          "Cosmic-bg-1.11.0">Next</a>
+          <p>
+            Cosmic-bg-1.11.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter02.html" title=
+          "Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Cosmic From Scratch - Version 1.0-cosmic">Home</a>
+        </li>
+      </ul>
+    </div>
+    <h1 class="sect1">
+      <a id="cosmic-applets" name="cosmic-applets"></a>2.4.
+      Cosmic-applets-1.11.0
+    </h1>
+    <div class="sect1" lang="en" xml:lang="en">
+      <div class="package" lang="en" xml:lang="en">
+        <p>
+          applets for COSMIC DE
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Download HTTP: <a class="ulink" href=
+                "https://github.com/fsvm88/cosmic-overlay/releases/download/1.11.0/cosmic-applets-1.11.0.full.tar.zst">
+                https://github.com/fsvm88/cosmic-overlay/releases/download/1.11.0/cosmic-applets-1.11.0.full.tar.zst</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download SHA256 Sum:
+                ecd003c7bbaa9dc413fc5d095fd343a330517a640547db315e2390ea7b371c0c
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download Size: 82,626 KB
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Disk Space: 3.6G
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Build Time: 5.14 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Cosmic-applets Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p>
+          rustc cargo-c cosmic-icons pulseaudio pipewire dbus libxkbcommon
+          libinput
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          2.4.1. Installation of Cosmic-applets
+        </h2>
+        <p>
+          Prepare Cosmic-applets for compilation:
+        </p>
+        <p>
+          Now Configure the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">sed "s|@bindir@|${EPREFIX}/usr/bin|" \
+  cosmic-applet-status-area/data/dbus-1/com.system76.CosmicStatusNotifierWatcher.service.in \
+  &gt; cosmic-applet-status-area/data/dbus-1/com.system76.CosmicStatusNotifierWatcher.service &amp;&amp;
+
+sed "s|@bindir@|${EPREFIX}/usr/bin|" \
+  cosmic-applet-status-area/data/com.system76.CosmicStatusNotifierWatcher.service.in \
+  &gt; cosmic-applet-status-area/data/com.system76.CosmicStatusNotifierWatcher.service &amp;&amp;
+
+cargo fetch --locked</kbd></pre>
+        <p>
+          To Compile the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">cargo build --release --frozen</kbd></pre>
+        <p>
+          Now Install the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">install -vDm755 target/release/cosmic-applets /usr/bin/cosmic-applets &amp;&amp;
+
+install -vDm644 cosmic-applet-status-area/data/com.system76.CosmicStatusNotifierWatcher.service \
+  /usr/lib/systemd/user/com.system76.CosmicStatusNotifierWatcher.service &amp;&amp;
+
+install -vDm644 cosmic-applet-status-area/data/dbus-1/com.system76.CosmicStatusNotifierWatcher.service \
+  /usr/share/dbus-1/services/com.system76.CosmicStatusNotifierWatcher.service &amp;&amp;
+
+install -vDm644 data/com.system76.CosmicApplets.metainfo.xml /usr/share/metainfo &amp;&amp;
+
+cp -rv cosmic-app-list/data/default_schema/* /usr/share/cosmic/</kbd></pre>
+        <p>
+          Now, as the <code class="systemitem">root</code> user, create the
+          symlinks to the multicall binary, install the icons, and install
+          the desktop files:
+        </p>
+        <pre class="root"><kbd class=
+        "command">for applet in cosmic-app-list cosmic-applet-a11y cosmic-applet-audio \
+    cosmic-applet-battery cosmic-applet-bluetooth \
+    cosmic-applet-input-sources cosmic-applet-minimize \
+    cosmic-applet-network cosmic-applet-notifications \
+    cosmic-applet-osk cosmic-applet-power \
+    cosmic-applet-status-area cosmic-applet-tiling \
+    cosmic-applet-time cosmic-applet-workspaces \
+    cosmic-panel-button
+do
+  ln -sfrv /usr/bin/cosmic-applets /usr/bin/$applet
+done
+
+for dir in cosmic-app-list cosmic-applet-a11y cosmic-applet-audio \
+    cosmic-applet-battery cosmic-applet-bluetooth \
+    cosmic-applet-input-sources cosmic-applet-minimize \
+    cosmic-applet-network cosmic-applet-notifications \
+    cosmic-applet-osk cosmic-applet-power \
+    cosmic-applet-status-area cosmic-applet-tiling \
+    cosmic-applet-time cosmic-applet-workspaces \
+    cosmic-panel-app-button cosmic-panel-launcher-button \
+    cosmic-panel-workspaces-button
+do
+  if [ -d $dir/data/icons ]; then
+    cp -rv $dir/data/icons/* /usr/share/icons/hicolor
+  fi
+done</kbd></pre>
+        <div class="admon note">
+          <img alt="[Note]" src="../images/note.png" />
+          <h3>
+            Note
+          </h3>
+          <p>
+            Verify that the build generated the desktop files for all 18
+            applets and buttons. The following command should print
+            <code class="computeroutput">18</code>:
+          </p>
+          <pre class="userinput"><kbd class=
+          "command">ls target/xdgen/*.desktop | wc -l</kbd></pre>
+        </div>
+        <pre class="root"><kbd class=
+        "command">install -vDm644 target/xdgen/*.desktop /usr/share/applications/</kbd></pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          2.4.2. Contents of Cosmic-applets
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed programs:</strong>
+              <span class="segbody">PROGRAMS</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed libraries:</strong>
+              <span class="segbody">LIBRARIES</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed directories:</strong>
+              <span class="segbody">DIRECTORIES</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="cosmic-app-library.html" title=
+          "Cosmic-app-library-1.11.0">Prev</a>
+          <p>
+            Cosmic-app-library-1.11.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="cosmic-bg.html" title=
+          "Cosmic-bg-1.11.0">Next</a>
+          <p>
+            Cosmic-bg-1.11.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter02.html" title=
+          "Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Cosmic From Scratch - Version 1.0-cosmic">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      2.10.&nbsp;Cosmic-viewer-1.11.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL-NS Stylesheets Vsnapshot" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="blfs" id="blfs-1.0-cosmic">
+    <div class="navheader">
+      <h4>
+        Cosmic From Scratch - Version 1.0-cosmic
+      </h4>
+      <h3>
+        Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="cosmic-edit.html" title=
+          "Cosmic-edit-1.11.0">Prev</a>
+          <p>
+            Cosmic-edit-1.11.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="cosmic-player.html" title=
+          "Cosmic-player-1.11.0">Next</a>
+          <p>
+            Cosmic-player-1.11.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter02.html" title=
+          "Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Cosmic From Scratch - Version 1.0-cosmic">Home</a>
+        </li>
+      </ul>
+    </div>
+    <h1 class="sect1">
+      <a id="cosmic-viewer" name="cosmic-viewer"></a>2.10.
+      Cosmic-viewer-1.11.0
+    </h1>
+    <div class="sect1" lang="en" xml:lang="en">
+      <div class="package" lang="en" xml:lang="en">
+        <p>
+          image viewer for COSMIC DE
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Download HTTP: <a class="ulink" href=
+                "https://github.com/fsvm88/cosmic-overlay/releases/download/1.11.0/cosmic-viewer-1.11.0.full.tar.zst">
+                https://github.com/fsvm88/cosmic-overlay/releases/download/1.11.0/cosmic-viewer-1.11.0.full.tar.zst</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download SHA256 Sum:
+                fcc64d1d2f3e97cc7a01b1d9b5e6a70af8a7b3139cecc1360ed4b80c0a653120
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download Size: 82,701 KB
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Disk Space: 2.8G
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Build Time: 3.26 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Cosmic-viewer Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p>
+          rustc, cargo-c, libheif, hicolor-icon-theme, libjpeg-turbo,
+          libxkbcommon, libde265, and dav1d
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          2.10.1. Installation of Cosmic-viewer
+        </h2>
+        <p>
+          Prepare Cosmic-viewer for compilation:
+        </p>
+        <p>
+          Now Configure the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">sed -i -e '/^  "embedded-libheif",$/d' Cargo.toml &amp;&amp;
+cargo update --offline --workspace</kbd></pre>
+        <p>
+          To Build the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">export TURBOJPEG_SOURCE=pkg-config &amp;&amp;
+export TURBOJPEG_DYNAMIC=1 &amp;&amp;
+
+cargo build --release --offline</kbd></pre>
+        <p>
+          Now Install the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">install -vDm755 target/release/cosmic-viewer /usr/bin/cosmic-viewer &amp;&amp;
+
+install -vDm644 res/com.system76.CosmicViewer.desktop \
+  /usr/share/applications/com.system76.CosmicViewer.desktop &amp;&amp;
+
+install -vDm644 res/com.system76.CosmicViewer.metainfo.xml \
+  /usr/share/metainfo/com.system76.CosmicViewer.metainfo.xml &amp;&amp;
+
+cp -rv res/icons/hicolor/. /usr/share/icons/hicolor/
+</kbd></pre>
+        <pre class="userinput"><kbd class=
+        "command">gtk-update-icon-cache -qtf /usr/share/icons/hicolor</kbd></pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          2.10.2. Contents of Cosmic-viewer
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed program:</strong>
+              <span class="segbody">cosmic-viewer</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed libraries:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed directories:</strong>
+              <span class="segbody">/usr/bin, /usr/share/applications,
+              /usr/share/metainfo, and /usr/share/icons/hicolor</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="cosmic-edit.html" title=
+          "Cosmic-edit-1.11.0">Prev</a>
+          <p>
+            Cosmic-edit-1.11.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="cosmic-player.html" title=
+          "Cosmic-player-1.11.0">Next</a>
+          <p>
+            Cosmic-player-1.11.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter02.html" title=
+          "Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Cosmic From Scratch - Version 1.0-cosmic">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-settings-version    "1.11.0">
+  <!ENTITY cosmic-settings-size       "86,468 KB">
+  <!ENTITY cosmic-settings-url        "&cosmic-url;/1.11.0/cosmic-settings-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-settings-sha256sum  "aa399444bc7bff6a6b77d8239d130eb084521d7252d3c1ac7337c7de5c6749cb">
+  <!ENTITY cosmic-settings-md5sum     "ce3be06a2dc3020eb69eed04ff0e6792">
+  <!ENTITY cosmic-settings-extracted  "1.1G">
+  <!ENTITY cosmic-settings-buildsize  "3.4G">
+  <!ENTITY cosmic-settings-buildtime  "3.94 SBU">
+]>
+ <sect1 id="cosmic-settings" xreflabel="Cosmic-settings-&cosmic-settings-version;">
+    <?dbhtml filename="cosmic-settings.html"?>
+
+      <title>Cosmic-settings-&cosmic-settings-version;</title>
+
+      <indexterm zone="cosmic-settings">
+          <primary sortas="a-Cosmic-settings">Cosmic-settings</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>settings application for the COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-settings-url;"/></para>
+        </listitem>
+
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-settings-sha256sum;</para>
+        </listitem>
+
+        <listitem>
+          <para>Download Size: &cosmic-settings-size;</para>
+        </listitem>
+
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-settings-buildsize;</para>
+        </listitem>
+
+        <listitem>
+          <para>Estimated Build Time: &cosmic-settings-buildtime;</para>
+        </listitem>
+
+      </itemizedlist>
+      <bridgehead renderas="sect3">Cosmic-settings Dependencies</bridgehead>
+      <bridgehead renderas="sect4">Required</bridgehead>
+          <para>rustc, cargo-c, bluez, cosmic-icons, cosmic-randr, iso-codes, dav1d,
+            fontconfig, freetype, gettext, xkeyboard-config, desktop-file-utils,
+            wayland, libxkbcommon, pipewire, pulseaudio, and libinput</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-settings</title>
+
+    <para>Prepare Cosmic-settings for compilation:</para>
+
+    <para>Fetch the dependencies, ensuring the exact versions recorded in the
+      existing <filename>Cargo.lock</filename> file are used:</para>
+
+        <screen><userinput remap="pre">cargo fetch --locked</userinput></screen>
+
+      <para>To Compile the Package, issue:</para>
+
+        <screen><userinput remap="make">cargo build --profile release --no-default-features --features \
+ "a11y avif cosmic-comp-config page-accessibility page-about page-bluetooth page-date page-default-apps \
+ page-display page-input page-legacy-applications page-networking page-power page-region page-sound \
+ page-window-management page-workspaces systemd xdg-portal wayland single-instance wgpu"
+</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vDm755 target/release/cosmic-settings /usr/bin/cosmic-settings &amp;&amp;
+
+install -vDm644 target/xdgen/*.desktop /usr/share/applications/ &amp;&amp;
+
+install -vDm644 resources/com.system76.CosmicSettings.metainfo.xml \
+  /usr/share/metainfo/ &amp;&amp;
+
+cp -rv resources/icons/* /usr/share/icons/hicolor/ &amp;&amp;
+
+install -vDm644 resources/polkit-1/rules.d/cosmic-settings.rules \
+  /usr/share/polkit-1/rules.d/ &amp;&amp;
+
+install -vDm644 resources/polkit-1/actions/com.system76.CosmicSettings.Users.policy \
+  /usr/share/polkit-1/actions/</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-settings</title>
+
+        <segmentedlist>
+          <segtitle>Installed program</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>cosmic-settings</seg>
+          <seg>None</seg>
+          <seg>/usr/bin, /usr/share/applications, /usr/share/metainfo,
+          /usr/share/icons/hicolor, and /usr/share/polkit-1</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

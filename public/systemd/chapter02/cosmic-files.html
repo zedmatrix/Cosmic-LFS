@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      2.8.&nbsp;Cosmic-files-1.11.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL-NS Stylesheets Vsnapshot" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="blfs" id="blfs-1.0-cosmic">
+    <div class="navheader">
+      <h4>
+        Cosmic From Scratch - Version 1.0-cosmic
+      </h4>
+      <h3>
+        Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="cosmic-term.html" title=
+          "Cosmic-term-1.11.0">Prev</a>
+          <p>
+            Cosmic-term-1.11.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="cosmic-edit.html" title=
+          "Cosmic-edit-1.11.0">Next</a>
+          <p>
+            Cosmic-edit-1.11.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter02.html" title=
+          "Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Cosmic From Scratch - Version 1.0-cosmic">Home</a>
+        </li>
+      </ul>
+    </div>
+    <h1 class="sect1">
+      <a id="cosmic-files" name="cosmic-files"></a>2.8. Cosmic-files-1.11.0
+    </h1>
+    <div class="sect1" lang="en" xml:lang="en">
+      <div class="package" lang="en" xml:lang="en">
+        <p>
+          file manager from COSMIC DE
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Download HTTP: <a class="ulink" href=
+                "https://github.com/fsvm88/cosmic-overlay/releases/download/1.11.0/cosmic-files-1.11.0.full.tar.zst">
+                https://github.com/fsvm88/cosmic-overlay/releases/download/1.11.0/cosmic-files-1.11.0.full.tar.zst</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download SHA256 Sum:
+                afe7ac595c1adbc4a9fd144867df274c4c8fed60a5e9161742aacc59ccaae38b
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download Size: 87,620 KB
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Disk Space: 4.6G
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Build Time: 5.97 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Cosmic-files Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p>
+          rustc, cargo-c, glib, xdg-utils, gvfs, cosmic-icons, and
+          libxkbcommon
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          2.8.1. Installation of Cosmic-files
+        </h2>
+        <p>
+          To Prepare the Package, issue:
+        </p>
+        <p>
+          Fetch the dependencies, ensuring the exact versions recorded in the
+          existing <code class="filename">Cargo.lock</code> file are used:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">cargo fetch --locked</kbd></pre>
+        <p>
+          To Build the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">export VERGEN_GIT_COMMIT_DATE='Tue Oct 20 17:40:58 2026 +0200' &amp;&amp;
+export VERGEN_GIT_SHA=3cc4b8003e8d08349c7ced8a9cdd10cdfa45d38c &amp;&amp;
+export LOCKSTEP_XML_PATH="${PWD}/vendor/atspi-common/xml" &amp;&amp;
+
+cargo build --release
+cargo build --release --package cosmic-files-applet
+cargo build --release --package cosmic-files-thumbnailer</kbd></pre>
+        <p>
+          Now Install the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">install -vDm755 target/release/cosmic-files /usr/bin/cosmic-files &amp;&amp;
+install -vDm755 target/release/cosmic-files-applet /usr/bin/cosmic-files-applet &amp;&amp;
+install -vDm755 target/release/cosmic-files-thumbnailer /usr/bin/cosmic-files-thumbnailer &amp;&amp;
+
+install -vDm644 target/xdgen/com.system76.CosmicFiles.desktop \
+  /usr/share/applications/ &amp;&amp;
+
+install -vDm644 target/xdgen/com.system76.CosmicFiles.metainfo.xml \
+  /usr/share/metainfo/ &amp;&amp;
+
+install -vDm644 res/com.system76.CosmicFiles.thumbnailer \
+  /usr/share/thumbnailers &amp;&amp;
+
+cp -rv res/icons/hicolor/* /usr/share/icons/hicolor/
+</kbd></pre>
+        <pre class="userinput"><kbd class=
+        "command">unset VERGEN_GIT_COMMIT_DATE VERGEN_GIT_SHA LOCKSTEP_XML_PATH</kbd></pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          2.8.2. Contents of Cosmic-files
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed programs:</strong>
+              <span class="segbody">cosmic-files, cosmic-files-applet, and
+              cosmic-files-thumbnailer</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed libraries:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed directories:</strong>
+              <span class="segbody">/usr/bin, /usr/share/icons/hicolor,
+              /usr/share/thumbnailers, /usr/share/metainfo, and
+              /usr/share/applications</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="cosmic-term.html" title=
+          "Cosmic-term-1.11.0">Prev</a>
+          <p>
+            Cosmic-term-1.11.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="cosmic-edit.html" title=
+          "Cosmic-edit-1.11.0">Next</a>
+          <p>
+            Cosmic-edit-1.11.0
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter02.html" title=
+          "Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Cosmic From Scratch - Version 1.0-cosmic">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

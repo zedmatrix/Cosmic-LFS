@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-workspaces-version    "1.11.0">
+  <!ENTITY cosmic-workspaces-size       "65,447 KB">
+  <!ENTITY cosmic-workspaces-url        "&cosmic-url;/1.11.0/cosmic-workspaces-epoch-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-workspaces-sha256sum  "c7922429b4e7a7545d39ce65a0e9a55b568d8af5262f07ef8d5a98dde823bf6a">
+  <!ENTITY cosmic-workspaces-md5sum     "47e5ce047f84e91220dc62449da75924">
+  <!ENTITY cosmic-workspaces-extracted  "906.2M">
+  <!ENTITY cosmic-workspaces-buildsize  "2.5G">
+  <!ENTITY cosmic-workspaces-buildtime  "2.43 SBU">
+]>
+ <sect1 id="cosmic-workspaces" xreflabel="Cosmic-workspaces-&cosmic-workspaces-version;">
+    <?dbhtml filename="cosmic-workspaces.html"?>
+
+      <title>Cosmic-workspaces-&cosmic-workspaces-version;</title>
+
+      <indexterm zone="cosmic-workspaces">
+          <primary sortas="a-Cosmic-workspaces">Cosmic-workspaces</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>workspaces support for COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-workspaces-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-workspaces-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &cosmic-workspaces-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-workspaces-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &cosmic-workspaces-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>
+      <bridgehead renderas="sect3">Cosmic-workspaces Dependencies</bridgehead>
+      <bridgehead renderas="sect4">Required</bridgehead>
+          <para>rustc, cargo-c, mesa, wayland, libxkbcommon, libinput, and cosmic-icons</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-workspaces</title>
+
+    <para>Prepare Cosmic-workspaces for compilation:</para>
+
+    <para>Fetch the dependencies, ensuring the exact versions recorded in the
+      existing <filename>Cargo.lock</filename> file are used:</para>
+
+        <screen><userinput remap="configure">cargo fetch --locked</userinput></screen>
+
+      <para>To Compile the Package, issue:</para>
+
+        <screen><userinput remap="make">cargo build --release</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vDm755 target/release/cosmic-workspaces /usr/bin/cosmic-workspaces &amp;&amp;
+
+install -vDm644 data/com.system76.CosmicWorkspaces.desktop \
+  /usr/share/applications/com.system76.CosmicWorkspaces.desktop &amp;&amp;
+
+install -vDm644 data/com.system76.CosmicWorkspaces.svg \
+  /usr/share/icons/hicolor/scalable/apps/com.system76.CosmicWorkspaces.svg</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-workspaces</title>
+
+        <segmentedlist>
+          <segtitle>Installed programs</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>cosmic-workspaces</seg>
+          <seg>None</seg>
+          <seg>/usr/bin, /usr/share/applications, and /usr/share/icons/hicolor/scalable/apps</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

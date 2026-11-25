@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-osd-version    "1.11.0">
+  <!ENTITY cosmic-osd-size       "67,748 KB">
+  <!ENTITY cosmic-osd-url        "&cosmic-url;/1.11.0/cosmic-osd-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-osd-sha256sum  "526c31882a413113aee4fca77cefe8b53d44bc72a6e428ed01a97eec7d4d8e0e">
+  <!ENTITY cosmic-osd-md5sum     "e5e0ce8c2f6f6a9051aaa1330d47ad56">
+  <!ENTITY cosmic-osd-extracted  "911.1M">
+  <!ENTITY cosmic-osd-buildsize  "2.6G">
+  <!ENTITY cosmic-osd-buildtime  "2.06 SBU">
+]>
+ <sect1 id="cosmic-osd" xreflabel="Cosmic-osd-&cosmic-osd-version;">
+    <?dbhtml filename="cosmic-osd.html"?>
+
+      <title>Cosmic-osd-&cosmic-osd-version;</title>
+
+      <indexterm zone="cosmic-osd">
+          <primary sortas="a-Cosmic-osd">Cosmic-osd</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>OSD daemon for COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-osd-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-osd-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &cosmic-osd-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-osd-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &cosmic-osd-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>
+      <bridgehead renderas="sect3">Cosmic-osd Dependencies</bridgehead>
+      <bridgehead renderas="sect4">Required</bridgehead>
+          <para>rustc, cargo-c, libinput, pipewire, pulseaudio,
+            libxkbcommon, wayland, and sound-theme-freedesktop</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-osd</title>
+
+    <para>Prepare Cosmic-osd for compilation:</para>
+
+    <para>Fix the installed directories and fetch the dependencies, ensuring the exact
+      versions recorded in the existing <filename>Cargo.lock</filename> file are used:</para>
+
+        <screen><userinput remap="configure">sed -i 's|.unwrap_or("/usr/libexec/polkit-agent-helper-1")|.unwrap_or("/usr/lib/polkit-1/polkit-agent-helper-1")|' \
+  src/subscriptions/polkit_agent_helper.rs &amp;&amp;
+
+cargo fetch --locked</userinput></screen>
+
+      <para>To Compile the Package, issue:</para>
+
+        <screen><userinput remap="make">cargo build --profile release --frozen</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vm755 target/release/cosmic-osd /usr/bin/cosmic-osd</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-osd</title>
+
+        <segmentedlist>
+          <segtitle>Installed program</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>cosmic-osd</seg>
+          <seg>None</seg>
+          <seg>/usr/bin</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

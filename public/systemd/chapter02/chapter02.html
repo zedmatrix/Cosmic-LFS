@@ -1,0 +1,182 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL-NS Stylesheets Vsnapshot" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="blfs" id="blfs-1.0-cosmic">
+    <div class="navheader">
+      <h4>
+        Cosmic From Scratch - Version 1.0-cosmic
+      </h4>
+      <h3>
+        Part&nbsp;II.&nbsp;Building Cosmic
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="../part2.html" title=
+          "Building Cosmic">Prev</a>
+          <p>
+            Building Cosmic
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="pop-icon-theme.html" title=
+          "Pop-icon-theme-v3.5.1">Next</a>
+          <p>
+            Pop-icon-theme-v3.5.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="../part2.html" title=
+          "Part&nbsp;II.&nbsp;Building Cosmic">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Cosmic From Scratch - Version 1.0-cosmic">Home</a>
+        </li>
+      </ul>
+    </div>
+    <h1 class="chapter">
+      <a id="building-cosmic" name="building-cosmic"></a>2. Compiling Cosmic
+      Desktop
+    </h1>
+    <div class="chapter" lang="en" xml:lang="en">
+      <div class="toc">
+        <h3>
+          Table of Contents
+        </h3>
+        <ul>
+          <li class="sect1">
+            <a href="pop-icon-theme.html">Pop-icon-theme-v3.5.1</a>
+          </li>
+          <li class="sect1">
+            <a href="cosmic-icons.html">Cosmic-icons-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cosmic-app-library.html">Cosmic-app-library-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cosmic-applets.html">Cosmic-applets-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cosmic-bg.html">Cosmic-bg-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cosmic-comp.html">Cosmic-comp-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cosmic-term.html">Cosmic-term-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cosmic-files.html">Cosmic-files-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cosmic-edit.html">Cosmic-edit-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cosmic-viewer.html">Cosmic-viewer-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cosmic-player.html">Cosmic-player-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cosmic-wallpapers.html">Cosmic-wallpapers-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cosmic-randr.html">Cosmic-randr-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cosmic-monitor.html">Cosmic-monitor-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href=
+            "cosmic-notifications.html">Cosmic-notifications-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cosmic-osd.html">Cosmic-osd-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cosmic-osk.html">Cosmic-osk-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href=
+            "xdg-desktop-portal-cosmic.html">Xdg-desktop-portal-cosmic-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cosmic-screenshot.html">Cosmic-screenshot-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cosmic-sound-theme.html">Cosmic-sound-theme-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cosmic-panel.html">Cosmic-panel-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cosmic-workspaces.html">Cosmic-workspaces-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href=
+            "cosmic-initial-setup.html">Cosmic-initial-setup-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="pop-launcher.html">Pop-launcher-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cosmic-launcher.html">Cosmic-launcher-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href=
+            "cosmic-settings-daemon.html">Cosmic-settings-daemon-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="cosmic-settings.html">Cosmic-settings-1.11.0</a>
+          </li>
+          <li class="sect1">
+            <a href="pop-gtk-theme.html">Pop-gtk-theme-v5.5.1</a>
+          </li>
+          <li class="sect1">
+            <a href="pop-fonts.html">Pop-fonts-master</a>
+          </li>
+          <li class="sect1">
+            <a href="cosmic-session.html">Cosmic-session-1.11.0</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="../part2.html" title=
+          "Building Cosmic">Prev</a>
+          <p>
+            Building Cosmic
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="pop-icon-theme.html" title=
+          "Pop-icon-theme-v3.5.1">Next</a>
+          <p>
+            Pop-icon-theme-v3.5.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="../part2.html" title=
+          "Part&nbsp;II.&nbsp;Building Cosmic">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Cosmic From Scratch - Version 1.0-cosmic">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

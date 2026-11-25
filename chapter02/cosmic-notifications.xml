@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-notifications-version    "1.11.0">
+  <!ENTITY cosmic-notifications-size       "56,412 KB">
+  <!ENTITY cosmic-notifications-url        "&cosmic-url;/1.11.0/cosmic-notifications-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-notifications-sha256sum  "179c9d89f0ae5e993dc14c83a94ebb3578784cba78ead58978d271509f46101f">
+  <!ENTITY cosmic-notifications-md5sum     "3213c6896d10b2d311fbcdc0b0d839a3">
+  <!ENTITY cosmic-notifications-extracted  "882.7M">
+  <!ENTITY cosmic-notifications-buildsize  "2.6G">
+  <!ENTITY cosmic-notifications-buildtime  "1.91 SBU">
+]>
+ <sect1 id="cosmic-notifications" xreflabel="Cosmic-notifications-&cosmic-notifications-version;">
+    <?dbhtml filename="cosmic-notifications.html"?>
+
+      <title>Cosmic-notifications-&cosmic-notifications-version;</title>
+
+      <indexterm zone="cosmic-notifications">
+          <primary sortas="a-Cosmic-notifications">Cosmic-notifications</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>layer shell notifications daemon for COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-notifications-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-notifications-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &cosmic-notifications-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-notifications-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &cosmic-notifications-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>
+      <bridgehead renderas="sect3">Cosmic-notifications Dependencies</bridgehead>
+      <bridgehead renderas="sect4">Required</bridgehead>
+          <para>rustc, cargo-c, intltool, wayland, libxkbcommon, and cosmic-icons</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-notifications</title>
+
+    <para>Prepare Cosmic-notifications for compilation:</para>
+
+    <para>Fetch the dependencies, ensuring the exact versions recorded in the
+      existing <filename>Cargo.lock</filename> file are used:</para>
+
+        <screen><userinput remap="pre">cargo fetch --locked</userinput></screen>
+
+      <para>To Compile the Package, issue:</para>
+
+        <screen><userinput remap="make">cargo build --profile release</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vDm755 target/release/cosmic-notifications \
+        /usr/bin/cosmic-notifications</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-notifications</title>
+
+        <segmentedlist>
+          <segtitle>Installed program</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directory</segtitle>
+
+        <seglistitem>
+          <seg>cosmic-notifications</seg>
+          <seg>None</seg>
+          <seg>/usr/bin</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

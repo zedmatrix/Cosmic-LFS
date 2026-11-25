@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-osk-version    "1.11.0">
+  <!ENTITY cosmic-osk-size       "57,651 KB">
+  <!ENTITY cosmic-osk-url        "&cosmic-url;/1.11.0/cosmic-osk-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-osk-sha256sum  "90ba8c08ff85450974dfb8c83bc59f750f140720152a0ff29a5afa56f46bee43">
+  <!ENTITY cosmic-osk-md5sum     "d6e0bbd470342a5a038f1d0630cddd79">
+  <!ENTITY cosmic-osk-extracted  "897.6M">
+  <!ENTITY cosmic-osk-buildsize  "2.5G">
+  <!ENTITY cosmic-osk-buildtime  "2.53 SBU">
+]>
+ <sect1 id="cosmic-osk" xreflabel="Cosmic-osk-&cosmic-osk-version;">
+    <?dbhtml filename="cosmic-osk.html"?>
+
+      <title>Cosmic-osk-&cosmic-osk-version;</title>
+
+      <indexterm zone="cosmic-osk">
+          <primary sortas="a-Cosmic-osk">Cosmic-osk</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>On-Screen Keyboard for COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-osk-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-osk-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &cosmic-osk-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-osk-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &cosmic-osk-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>
+      <bridgehead renderas="sect3">Cosmic-osk Dependencies</bridgehead>
+      <bridgehead renderas="sect4">Required</bridgehead>
+          <para>rustc, cargo-c, libxkbcommon, and wayland</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-osk</title>
+
+    <para>Prepare Cosmic-osk for compilation:</para>
+
+    <para>Fetch the dependencies, ensuring the exact versions recorded in the
+      existing <filename>Cargo.lock</filename> file are used:</para>
+
+        <screen><userinput remap="configure">cargo fetch --locked</userinput></screen>
+
+      <para>To Compile the Package, issue:</para>
+
+        <screen><userinput remap="make">cargo build --profile release --frozen --all</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vDm755 target/release/cosmic-osk /usr/bin/cosmic-osk</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-osk</title>
+
+        <segmentedlist>
+          <segtitle>Installed program</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directory</segtitle>
+
+        <seglistitem>
+          <seg>cosmic-osk</seg>
+          <seg>None</seg>
+          <seg>/usr/bin</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

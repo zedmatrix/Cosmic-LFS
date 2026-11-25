@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-session-version    "1.11.0">
+  <!ENTITY cosmic-session-size       "24,946 KB">
+  <!ENTITY cosmic-session-url        "&cosmic-url;/1.11.0/cosmic-session-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-session-sha256sum  "dbea284db2cb8305002c617483ef28ae1645e6043c183a9e6c9632fc70571ebe">
+  <!ENTITY cosmic-session-md5sum     "8a40bd1bdf8b6d94f1ac6d2a6989e055">
+  <!ENTITY cosmic-session-extracted  "219.6M">
+  <!ENTITY cosmic-session-buildsize  "670.2M">
+  <!ENTITY cosmic-session-buildtime  "less than 1.0 SBU">
+]>
+ <sect1 id="cosmic-session" xreflabel="Cosmic-session-&cosmic-session-version;">
+    <?dbhtml filename="cosmic-session.html"?>
+
+      <title>Cosmic-session-&cosmic-session-version;</title>
+
+      <indexterm zone="cosmic-session">
+          <primary sortas="a-Cosmic-session">Cosmic-session</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>sessions manager for the COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-session-url;"/></para>
+        </listitem>
+
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-session-sha256sum;</para>
+        </listitem>
+
+        <listitem>
+          <para>Download Size: &cosmic-session-size;</para>
+        </listitem>
+
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-session-buildsize;</para>
+        </listitem>
+
+        <listitem>
+          <para>Estimated Build Time: &cosmic-session-buildtime;</para>
+        </listitem>
+
+      </itemizedlist>
+        <bridgehead renderas="sect3">Cosmic-session Dependencies</bridgehead>
+          <bridgehead renderas="sect4">Required</bridgehead>
+            <para>rustc, cargo-c, cosmic-applets, cosmic-app-library, cosmic-bg, cosmic-comp, cosmic-icons,
+            cosmic-idle, cosmic-launcher, cosmic-notifications, cosmic-osd, cosmic-osk, cosmic-panel, cosmic-randr,
+            cosmic-screenshot, cosmic-settings, cosmic-settings-daemon, cosmic-wallpapers, cosmic-workspaces,
+            xdg-desktop-portal-cosmic, pop-fonts, noto-fonts, and xwayland</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-session</title>
+
+    <para>Prepare Cosmic-session for compilation:</para>
+
+    <para>Fetch the dependencies, ensuring the exact versions recorded in the
+      existing <filename>Cargo.lock</filename> file are used:</para>
+
+        <screen><userinput remap="configure">sed -i "s|DCONF_PROFILE=cosmic|DCONF_PROFILE=/usr/share/dconf/profile/cosmic|" data/start-cosmic &amp;&amp;
+cargo fetch --locked</userinput></screen>
+
+      <para>To Compile the Package, issue:</para>
+
+        <screen><userinput remap="make">export XDP_COSMIC="/usr/libexec/xdg-desktop-portal-cosmic" &amp;&amp;
+cargo build --release</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vDm755 target/release/cosmic-session /usr/bin/cosmic-session &amp;&amp;
+install -vDm755 data/start-cosmic /usr/bin/ &amp;&amp;
+
+install -vDm644 data/cosmic-session.target /usr/lib/systemd/user/cosmic-session.target &amp;&amp;
+
+install -vDm644 data/cosmic.desktop /usr/share/wayland-sessions/cosmic.desktop &amp;&amp;
+
+install -vDm644 data/cosmic-mimeapps.list /usr/share/applications/cosmic-mimeapps.list &amp;&amp;
+install -vDm644 debian/cosmic-session.gsettings-override \
+  /usr/share/glib-2.0/schemas/50_cosmic-session.gschema.override &amp;&amp;
+install -vDm644 data/dconf/profile/cosmic /usr/share/dconf/profile/cosmic</userinput></screen>
+
+        <screen><userinput remap="post">glib-compile-schemas /usr/share/glib-2.0/schemas</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-session</title>
+
+        <segmentedlist>
+          <segtitle>Installed programs</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>cosmic-session, start-cosmic (bash wrapper)</seg>
+          <seg>LIBRARIES</seg>
+          <seg>/usr/bin, /usr/lib/systemd/user, /usr/share/wayland-sessions, /usr/share/applications
+            /usr/share/glib-2.0/schemas, and /usr/share/dconf/profile/cosmic</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

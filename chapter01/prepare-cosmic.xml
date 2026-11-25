@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+  "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+]>
+
+<sect1 id="ch-preparing-cosmic">
+  <?dbhtml filename="preparing-cosmic.html"?>
+
+  <title>Preparing Cosmic</title>
+
+  <para>
+    COSMIC is a Wayland desktop environment, so no Xorg server is required.
+    Before building the packages in this chapter, make sure the following are
+    installed and working: a recent Rust toolchain, Mesa (with GBM and EGL),
+    libinput, libxkbcommon, Linux-PAM, D-Bus, polkit, and systemd (or another
+    seat manager such as seatd). Each COSMIC package is a standalone Cargo
+    project with vendored crates, so the packages can be built in any order.
+  </para>
+
+  <sect2>
+    <title>Extraction Method</title>
+
+    <para>The source tarballs are compressed with zstd using a 2 GB
+      long-distance window. The <command>zstd</command> default limit is
+      128 MB, so decompression needs an extra option and about 2 GB of free
+      RAM:</para>
+
+    <screen><userinput>tar --use-compress-program="zstd -d --long=31" \
+        -xf ../<replaceable>archive-name</replaceable>.tar.zst</userinput></screen>
+
+    <para>Without the option, <command>tar</command> fails with
+      <computeroutput>Frame requires too much memory for
+        decoding</computeroutput>.</para>
+  </sect2>
+
+  <sect2>
+    <title>Building with Cargo</title>
+
+    <para>The tarballs include a <filename class="directory">vendor</filename>
+      directory, so the builds work offline. Use <option>--frozen</option>
+      (or <option>--offline --locked</option>) so Cargo doesn't try to
+      reach the network or change <filename>Cargo.lock</filename>.</para>
+  </sect2>
+
+  <sect2>
+    <title>Workaround for packages using atspi-common</title>
+
+    <para>Some packages vendor the <filename>atspi-common</filename> crate, whose
+      <function>validate</function> macro needs to be told where its D-Bus XML
+      files are. Run this from the top of the source tree, before building:</para>
+
+    <screen><userinput>export LOCKSTEP_XML_PATH=$(pwd)/vendor/atspi-common/xml</userinput></screen>
+
+    <para>Run <command>unset LOCKSTEP_XML_PATH</command> after the build so the
+      variable doesn't affect other packages.</para>
+  </sect2>
+
+  <sect2>
+    <title>Rendering in a Virtual Machine</title>
+
+    <para>In a virtual machine without GPU acceleration, the wgpu renderer
+      may fail with a shader validation error. If so, create
+      <filename>/etc/environment.d/50-cosmic-render.conf</filename> as the
+      <systemitem class="username">root</systemitem> user:</para>
+
+    <screen role="root"><userinput>cat &gt; /etc/environment.d/50-cosmic-render.conf &lt;&lt; "EOF"
+        <literal>WGPU_BACKEND=gl
+          LIBGL_ALWAYS_SOFTWARE=1
+          GALLIUM_DRIVER=llvmpipe
+          LANG=en_US.UTF-8</literal>
+        EOF</userinput></screen>
+  </sect2>
+
+</sect1>

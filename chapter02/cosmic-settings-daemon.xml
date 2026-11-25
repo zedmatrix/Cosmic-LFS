@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-settings-daemon-version    "1.11.0">
+  <!ENTITY cosmic-settings-daemon-size       "54,247 KB">
+  <!ENTITY cosmic-settings-daemon-url        "&cosmic-url;/1.11.0/cosmic-settings-daemon-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-settings-daemon-sha256sum  "c61fd3fe30f49c0c3ab8f1b1ca05564202321a1bacef0f0b15b8444e6ccb3feb">
+  <!ENTITY cosmic-settings-daemon-md5sum     "18cc4c882903d496847145773a826f60">
+  <!ENTITY cosmic-settings-daemon-extracted  "774.7M">
+  <!ENTITY cosmic-settings-daemon-buildsize  "2.3G">
+  <!ENTITY cosmic-settings-daemon-buildtime  "2.47 SBU">
+]>
+ <sect1 id="cosmic-settings-daemon" xreflabel="Cosmic-settings-daemon-&cosmic-settings-daemon-version;">
+    <?dbhtml filename="cosmic-settings-daemon.html"?>
+
+      <title>Cosmic-settings-daemon-&cosmic-settings-daemon-version;</title>
+
+      <indexterm zone="cosmic-settings-daemon">
+          <primary sortas="a-Cosmic-settings-daemon">Cosmic-settings-daemon</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>settings daemon for the COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-settings-daemon-url;"/></para>
+        </listitem>
+
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-settings-daemon-sha256sum;</para>
+        </listitem>
+
+        <listitem>
+          <para>Download Size: &cosmic-settings-daemon-size;</para>
+        </listitem>
+
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-settings-daemon-buildsize;</para>
+        </listitem>
+
+        <listitem>
+          <para>Estimated Build Time: &cosmic-settings-daemon-buildtime;</para>
+        </listitem>
+
+      </itemizedlist>
+      <bridgehead renderas="sect3">Cosmic-settings-daemon Dependencies</bridgehead>
+      <bridgehead renderas="sect4">Required</bridgehead>
+          <para>rustc, cargo-c, cosmic-sound-theme, libinput, pipewire,
+            pulseaudio, wireplumber, xdg-utils, libxkbcommon, and alsa-utils</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-settings-daemon</title>
+
+    <para>Prepare Cosmic-settings-daemon for compilation:</para>
+
+    <para>Fetch the dependencies, ensuring the exact versions recorded in the
+      existing <filename>Cargo.lock</filename> file are used:</para>
+
+        <screen><userinput remap="configure">cargo fetch --locked</userinput></screen>
+
+      <para>To Compile the Package, issue:</para>
+
+        <screen><userinput remap="make">cargo build --profile release --frozen</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vDm755 target/release/cosmic-settings-daemon \
+        /usr/bin/cosmic-settings-daemon &amp;&amp;
+
+install -vDm644 data/system_actions.ron \
+  /usr/share/cosmic/com.system76.CosmicSettings.Shortcuts/v1/system_actions &amp;&amp;
+
+install -vDm644 data/polkit-1/rules.d/cosmic-settings-daemon.rules \
+  /usr/share/polkit-1/rules.d/</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-settings-daemon</title>
+
+        <segmentedlist>
+          <segtitle>Installed program</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>cosmic-settings-daemon</seg>
+          <seg>None</seg>
+          <seg>/usr/bin, /usr/share/cosmic, /usr/share/polkit-1/rules.d</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

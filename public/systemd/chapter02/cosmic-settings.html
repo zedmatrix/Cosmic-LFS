@@ -1,0 +1,197 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+    <title>
+      2.27.&nbsp;Cosmic-settings-1.11.0
+    </title>
+    <link rel="stylesheet" type="text/css" href="../stylesheets/lfs.css" />
+    <meta name="generator" content="DocBook XSL-NS Stylesheets Vsnapshot" />
+    <link rel="stylesheet" href="../stylesheets/lfs-print.css" type=
+    "text/css" media="print" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body class="blfs" id="blfs-1.0-cosmic">
+    <div class="navheader">
+      <h4>
+        Cosmic From Scratch - Version 1.0-cosmic
+      </h4>
+      <h3>
+        Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop
+      </h3>
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="cosmic-settings-daemon.html" title=
+          "Cosmic-settings-daemon-1.11.0">Prev</a>
+          <p>
+            Cosmic-settings-daemon-1.11.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="pop-gtk-theme.html" title=
+          "Pop-gtk-theme-v5.5.1">Next</a>
+          <p>
+            Pop-gtk-theme-v5.5.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter02.html" title=
+          "Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Cosmic From Scratch - Version 1.0-cosmic">Home</a>
+        </li>
+      </ul>
+    </div>
+    <h1 class="sect1">
+      <a id="cosmic-settings" name="cosmic-settings"></a>2.27.
+      Cosmic-settings-1.11.0
+    </h1>
+    <div class="sect1" lang="en" xml:lang="en">
+      <div class="package" lang="en" xml:lang="en">
+        <p>
+          settings application for the COSMIC DE
+        </p>
+        <h3>
+          Package Information
+        </h3>
+        <div class="itemizedlist">
+          <ul class="compact">
+            <li class="listitem">
+              <p>
+                Download HTTP: <a class="ulink" href=
+                "https://github.com/fsvm88/cosmic-overlay/releases/download/1.11.0/cosmic-settings-1.11.0.full.tar.zst">
+                https://github.com/fsvm88/cosmic-overlay/releases/download/1.11.0/cosmic-settings-1.11.0.full.tar.zst</a>
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download SHA256 Sum:
+                aa399444bc7bff6a6b77d8239d130eb084521d7252d3c1ac7337c7de5c6749cb
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Download Size: 86,468 KB
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Disk Space: 3.4G
+              </p>
+            </li>
+            <li class="listitem">
+              <p>
+                Estimated Build Time: 3.94 SBU
+              </p>
+            </li>
+          </ul>
+        </div>
+        <h3>
+          Cosmic-settings Dependencies
+        </h3>
+        <h4>
+          Required
+        </h4>
+        <p>
+          rustc, cargo-c, bluez, cosmic-icons, cosmic-randr, iso-codes,
+          dav1d, fontconfig, freetype, gettext, xkeyboard-config,
+          desktop-file-utils, wayland, libxkbcommon, pipewire, pulseaudio,
+          and libinput
+        </p>
+      </div>
+      <div class="installation" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          2.27.1. Installation of Cosmic-settings
+        </h2>
+        <p>
+          Prepare Cosmic-settings for compilation:
+        </p>
+        <p>
+          Fetch the dependencies, ensuring the exact versions recorded in the
+          existing <code class="filename">Cargo.lock</code> file are used:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">cargo fetch --locked</kbd></pre>
+        <p>
+          To Compile the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">cargo build --profile release --no-default-features --features \
+ "a11y avif cosmic-comp-config page-accessibility page-about page-bluetooth page-date page-default-apps \
+ page-display page-input page-legacy-applications page-networking page-power page-region page-sound \
+ page-window-management page-workspaces systemd xdg-portal wayland single-instance wgpu"
+</kbd></pre>
+        <p>
+          Now Install the Package, issue:
+        </p>
+        <pre class="userinput"><kbd class=
+        "command">install -vDm755 target/release/cosmic-settings /usr/bin/cosmic-settings &amp;&amp;
+
+install -vDm644 target/xdgen/*.desktop /usr/share/applications/ &amp;&amp;
+
+install -vDm644 resources/com.system76.CosmicSettings.metainfo.xml \
+  /usr/share/metainfo/ &amp;&amp;
+
+cp -rv resources/icons/* /usr/share/icons/hicolor/ &amp;&amp;
+
+install -vDm644 resources/polkit-1/rules.d/cosmic-settings.rules \
+  /usr/share/polkit-1/rules.d/ &amp;&amp;
+
+install -vDm644 resources/polkit-1/actions/com.system76.CosmicSettings.Users.policy \
+  /usr/share/polkit-1/actions/</kbd></pre>
+      </div>
+      <div class="content" lang="en" xml:lang="en">
+        <h2 class="sect2">
+          2.27.2. Contents of Cosmic-settings
+        </h2>
+        <div class="segmentedlist">
+          <div class="seglistitem">
+            <div class="seg">
+              <strong class="segtitle">Installed program:</strong>
+              <span class="segbody">cosmic-settings</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed libraries:</strong>
+              <span class="segbody">None</span>
+            </div>
+            <div class="seg">
+              <strong class="segtitle">Installed directories:</strong>
+              <span class="segbody">/usr/bin, /usr/share/applications,
+              /usr/share/metainfo, /usr/share/icons/hicolor, and
+              /usr/share/polkit-1</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navfooter">
+      <ul>
+        <li class="prev">
+          <a accesskey="p" href="cosmic-settings-daemon.html" title=
+          "Cosmic-settings-daemon-1.11.0">Prev</a>
+          <p>
+            Cosmic-settings-daemon-1.11.0
+          </p>
+        </li>
+        <li class="next">
+          <a accesskey="n" href="pop-gtk-theme.html" title=
+          "Pop-gtk-theme-v5.5.1">Next</a>
+          <p>
+            Pop-gtk-theme-v5.5.1
+          </p>
+        </li>
+        <li class="up">
+          <a accesskey="u" href="chapter02.html" title=
+          "Chapter&nbsp;2.&nbsp;Compiling Cosmic Desktop">Up</a>
+        </li>
+        <li class="home">
+          <a accesskey="h" href="../index.html" title=
+          "Cosmic From Scratch - Version 1.0-cosmic">Home</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

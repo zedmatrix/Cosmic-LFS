@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-randr-version    "1.11.0">
+  <!ENTITY cosmic-randr-size       "6,677 KB">
+  <!ENTITY cosmic-randr-url        "&cosmic-url;/1.11.0/cosmic-randr-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-randr-sha256sum  "e85ff56ef0f8168dccc4133ff5a0efa35233712331b406cca1cf628db6774de9">
+  <!ENTITY cosmic-randr-md5sum     "07f59074bec797b07b4a271f66a910eb">
+  <!ENTITY cosmic-randr-extracted  "76.8M">
+  <!ENTITY cosmic-randr-buildsize  "286.9M">
+  <!ENTITY cosmic-randr-buildtime  "less than 0.5 SBU">
+]>
+ <sect1 id="cosmic-randr" xreflabel="Cosmic-randr-&cosmic-randr-version;">
+    <?dbhtml filename="cosmic-randr.html"?>
+
+      <title>Cosmic-randr-&cosmic-randr-version;</title>
+
+      <indexterm zone="cosmic-randr">
+          <primary sortas="a-Cosmic-randr">Cosmic-randr</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>CLI utility for displaying and configuring wayland outputs from COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-randr-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-randr-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &cosmic-randr-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-randr-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &cosmic-randr-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>
+      <bridgehead renderas="sect3">Cosmic-randr Dependencies</bridgehead>
+      <bridgehead renderas="sect4">Required</bridgehead>
+          <para>rustc, cargo-c, and wayland</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-randr</title>
+
+    <para>Prepare Cosmic-randr for compilation:</para>
+
+      <para>To Build the Package, issue:</para>
+
+        <screen><userinput remap="make">cargo build --release</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vm755 target/release/cosmic-randr /usr/bin/cosmic-randr</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-randr</title>
+
+        <segmentedlist>
+          <segtitle>Installed program</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directory</segtitle>
+
+        <seglistitem>
+          <seg>cosmic-randr</seg>
+          <seg>None</seg>
+          <seg>/usr/bin</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

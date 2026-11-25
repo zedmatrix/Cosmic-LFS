@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-viewer-version    "1.11.0">
+  <!ENTITY cosmic-viewer-size       "82,701 KB">
+  <!ENTITY cosmic-viewer-url        "&cosmic-url;/1.11.0/cosmic-viewer-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-viewer-sha256sum  "fcc64d1d2f3e97cc7a01b1d9b5e6a70af8a7b3139cecc1360ed4b80c0a653120">
+  <!ENTITY cosmic-viewer-md5sum     "990dd1a90ba1842717be1eb1fa0a5067">
+  <!ENTITY cosmic-viewer-extracted  "947.3M">
+  <!ENTITY cosmic-viewer-buildsize  "2.8G">
+  <!ENTITY cosmic-viewer-buildtime  "3.26 SBU">
+]>
+ <sect1 id="cosmic-viewer" xreflabel="Cosmic-viewer-&cosmic-viewer-version;">
+    <?dbhtml filename="cosmic-viewer.html"?>
+
+      <title>Cosmic-viewer-&cosmic-viewer-version;</title>
+
+      <indexterm zone="cosmic-viewer">
+          <primary sortas="a-Cosmic-viewer">Cosmic-viewer</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>image viewer for COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-viewer-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-viewer-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &cosmic-viewer-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-viewer-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &cosmic-viewer-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>
+      <bridgehead renderas="sect3">Cosmic-viewer Dependencies</bridgehead>
+      <bridgehead renderas="sect4">Required</bridgehead>
+          <para>rustc, cargo-c, libheif, hicolor-icon-theme,
+            libjpeg-turbo, libxkbcommon, libde265, and dav1d</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-viewer</title>
+
+    <para>Prepare Cosmic-viewer for compilation:</para>
+
+      <para>Now Configure the Package, issue:</para>
+
+        <screen><userinput remap="configure">sed -i -e '/^  "embedded-libheif",$/d' Cargo.toml &amp;&amp;
+cargo update --offline --workspace</userinput></screen>
+
+      <para>To Build the Package, issue:</para>
+
+        <screen><userinput remap="make">export TURBOJPEG_SOURCE=pkg-config &amp;&amp;
+export TURBOJPEG_DYNAMIC=1 &amp;&amp;
+
+cargo build --release --offline</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vDm755 target/release/cosmic-viewer /usr/bin/cosmic-viewer &amp;&amp;
+
+install -vDm644 res/com.system76.CosmicViewer.desktop \
+  /usr/share/applications/com.system76.CosmicViewer.desktop &amp;&amp;
+
+install -vDm644 res/com.system76.CosmicViewer.metainfo.xml \
+  /usr/share/metainfo/com.system76.CosmicViewer.metainfo.xml &amp;&amp;
+
+cp -rv res/icons/hicolor/. /usr/share/icons/hicolor/
+</userinput></screen>
+
+        <screen><userinput remap="post">gtk-update-icon-cache -qtf /usr/share/icons/hicolor</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-viewer</title>
+
+        <segmentedlist>
+          <segtitle>Installed program</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>cosmic-viewer</seg>
+          <seg>None</seg>
+          <seg>/usr/bin, /usr/share/applications, /usr/share/metainfo, and /usr/share/icons/hicolor</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

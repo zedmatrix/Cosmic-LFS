@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-files-version    "1.11.0">
+  <!ENTITY cosmic-files-size       "87,620 KB">
+  <!ENTITY cosmic-files-url        "&cosmic-url;/1.11.0/cosmic-files-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-files-sha256sum  "afe7ac595c1adbc4a9fd144867df274c4c8fed60a5e9161742aacc59ccaae38b">
+  <!ENTITY cosmic-files-md5sum     "c449a367549786e51fdd2dab7e8a921f">
+  <!ENTITY cosmic-files-extracted  "1.1G">
+  <!ENTITY cosmic-files-buildsize  "4.6G">
+  <!ENTITY cosmic-files-buildtime  "5.97 SBU">
+]>
+ <sect1 id="cosmic-files" xreflabel="Cosmic-files-&cosmic-files-version;">
+    <?dbhtml filename="cosmic-files.html"?>
+
+      <title>Cosmic-files-&cosmic-files-version;</title>
+
+      <indexterm zone="cosmic-files">
+          <primary sortas="a-Cosmic-files">Cosmic-files</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>file manager from COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-files-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-files-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &cosmic-files-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-files-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &cosmic-files-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>
+      <bridgehead renderas="sect3">Cosmic-files Dependencies</bridgehead>
+      <bridgehead renderas="sect4">Required</bridgehead>
+          <para>rustc, cargo-c, glib, xdg-utils, gvfs, cosmic-icons, and libxkbcommon</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-files</title>
+
+        <para>To Prepare the Package, issue:</para>
+
+        <para>Fetch the dependencies, ensuring the exact versions recorded in the
+          existing <filename>Cargo.lock</filename> file are used:</para>
+
+        <screen><userinput remap="configure">cargo fetch --locked</userinput></screen>
+
+      <para>To Build the Package, issue:</para>
+
+        <screen><userinput remap="make">export VERGEN_GIT_COMMIT_DATE='Tue Oct 20 17:40:58 2026 +0200' &amp;&amp;
+export VERGEN_GIT_SHA=3cc4b8003e8d08349c7ced8a9cdd10cdfa45d38c &amp;&amp;
+export LOCKSTEP_XML_PATH="${PWD}/vendor/atspi-common/xml" &amp;&amp;
+
+cargo build --release
+cargo build --release --package cosmic-files-applet
+cargo build --release --package cosmic-files-thumbnailer</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vDm755 target/release/cosmic-files /usr/bin/cosmic-files &amp;&amp;
+install -vDm755 target/release/cosmic-files-applet /usr/bin/cosmic-files-applet &amp;&amp;
+install -vDm755 target/release/cosmic-files-thumbnailer /usr/bin/cosmic-files-thumbnailer &amp;&amp;
+
+install -vDm644 target/xdgen/com.system76.CosmicFiles.desktop \
+  /usr/share/applications/ &amp;&amp;
+
+install -vDm644 target/xdgen/com.system76.CosmicFiles.metainfo.xml \
+  /usr/share/metainfo/ &amp;&amp;
+
+install -vDm644 res/com.system76.CosmicFiles.thumbnailer \
+  /usr/share/thumbnailers &amp;&amp;
+
+cp -rv res/icons/hicolor/* /usr/share/icons/hicolor/
+</userinput></screen>
+
+        <screen><userinput remap="post">unset VERGEN_GIT_COMMIT_DATE VERGEN_GIT_SHA LOCKSTEP_XML_PATH</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-files</title>
+
+        <segmentedlist>
+          <segtitle>Installed programs</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>cosmic-files, cosmic-files-applet, and cosmic-files-thumbnailer</seg>
+          <seg>None</seg>
+          <seg>/usr/bin, /usr/share/icons/hicolor, /usr/share/thumbnailers,
+            /usr/share/metainfo, and /usr/share/applications</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-term-version    "1.11.0">
+  <!ENTITY cosmic-term-size       "75,712 KB">
+  <!ENTITY cosmic-term-url        "&cosmic-url;/1.11.0/cosmic-term-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-term-sha256sum  "e1fe63358cf6ee4284125ce49a5379d163395c6aec9338311a491e76df4a17b7">
+  <!ENTITY cosmic-term-md5sum     "2b0f5f84a9725cd75142a7b18933755f">
+  <!ENTITY cosmic-term-extracted  "1.1G">
+  <!ENTITY cosmic-term-buildsize  "3.2G">
+  <!ENTITY cosmic-term-buildtime  "3.54 SBU">
+]>
+ <sect1 id="cosmic-term" xreflabel="Cosmic-term-&cosmic-term-version;">
+    <?dbhtml filename="cosmic-term.html"?>
+
+      <title>Cosmic-term-&cosmic-term-version;</title>
+
+      <indexterm zone="cosmic-term">
+          <primary sortas="a-Cosmic-term">Cosmic-term</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>terminal emulator (built using alacritty_terminal) from COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-term-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-term-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &cosmic-term-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-term-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &cosmic-term-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>
+      <bridgehead renderas="sect3">Cosmic-term Dependencies</bridgehead>
+      <bridgehead renderas="sect4">Required</bridgehead>
+          <para>rustc, cargo-c, cosmic-icons, wayland, and libxkbcommon</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-term</title>
+
+    <para>Prepare Cosmic-term for compilation:</para>
+
+      <para>To Build the Package, issue:</para>
+
+        <screen><userinput remap="make">export VERGEN_GIT_COMMIT_DATE='Tue Oct 20 13:46:25 2026 -0600' &amp;&amp;
+export VERGEN_GIT_SHA=699ac42384b917029082d45a01a9261a4ba75c45 &amp;&amp;
+
+cargo build --release --offline</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vDm755 target/release/cosmic-term /usr/bin/cosmic-term &amp;&amp;
+
+install -vDm644 target/xdgen/com.system76.CosmicTerm.desktop \
+  /usr/share/applications/com.system76.CosmicTerm.desktop &amp;&amp;
+install -vDm644 target/xdgen/com.system76.CosmicTerm.metainfo.xml \
+  /usr/share/metainfo/com.system76.CosmicTerm.metainfo.xml &amp;&amp;
+
+cp -rv res/icons/hicolor/. /usr/share/icons/hicolor/</userinput></screen>
+
+        <screen><userinput remap="post">unset VERGEN_GIT_COMMIT_DATE VERGEN_GIT_SHA &amp;&amp;
+gtk-update-icon-cache -qtf /usr/share/icons/hicolor
+</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-term</title>
+
+        <segmentedlist>
+          <segtitle>Installed programs</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>cosmic-term</seg>
+          <seg>LIBRARIES</seg>
+          <seg>/usr/bin, /usr/share/icons, /usr/share/metainfo, and /usr/share/applications</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

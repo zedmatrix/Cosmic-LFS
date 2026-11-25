@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-player-version    "1.11.0">
+  <!ENTITY cosmic-player-size       "63,282 KB">
+  <!ENTITY cosmic-player-url        "&cosmic-url;/1.11.0/cosmic-player-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-player-sha256sum  "5387f493c732c2b22f8bf75b4dc5f313bcb110805981e0138e7ba8a1bf6e3ef7">
+  <!ENTITY cosmic-player-md5sum     "adebda0609a2036ae7006d8ba6f3cd2f">
+  <!ENTITY cosmic-player-extracted  "936.5M">
+  <!ENTITY cosmic-player-buildsize  "2.9G">
+  <!ENTITY cosmic-player-buildtime  "2.82 SBU">
+]>
+ <sect1 id="cosmic-player" xreflabel="Cosmic-player-&cosmic-player-version;">
+    <?dbhtml filename="cosmic-player.html"?>
+
+      <title>Cosmic-player-&cosmic-player-version;</title>
+
+      <indexterm zone="cosmic-player">
+          <primary sortas="a-Cosmic-player">Cosmic-player</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>player for COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-player-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-player-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &cosmic-player-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-player-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &cosmic-player-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>
+      <bridgehead renderas="sect3">Cosmic-player Dependencies</bridgehead>
+      <bridgehead renderas="sect4">Required</bridgehead>
+          <para>rustc, cargo-c, gstreamer, gst-plugins-base, gst-plugins-good,
+            libxkbcommon, glib, and gobject-introspection</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-player</title>
+
+    <para>Prepare Cosmic-player for compilation:</para>
+
+    <para>Fetch the dependencies, ensuring the exact versions recorded in the
+      existing <filename>Cargo.lock</filename> file are used:</para>
+
+        <screen><userinput remap="configure">cargo fetch --locked</userinput></screen>
+
+      <para>To Compile the Package, issue:</para>
+
+        <screen><userinput remap="make">cargo build --release</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vDm755 target/release/cosmic-player /usr/bin/cosmic-player &amp;&amp;
+
+install -vDm644 res/com.system76.CosmicPlayer.desktop \
+  /usr/share/applications/com.system76.CosmicPlayer.desktop &amp;&amp;
+
+install -vDm644 res/com.system76.CosmicPlayer.metainfo.xml \
+  /usr/share/metainfo/ &amp;&amp;
+
+install -vDm644 res/com.system76.CosmicPlayer.thumbnailer \
+  /usr/share/thumbnailers/ &amp;&amp;
+
+cp -rv res/icons/hicolor/* /usr/share/icons/hicolor/</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-player</title>
+
+        <segmentedlist>
+          <segtitle>Installed program</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>cosmic-player</seg>
+          <seg>None</seg>
+          <seg>/usr/bin, /usr/share/applications, /usr/share/metainfo,
+            /usr/share/thumbnailers, and /usr/share/icons/hicolor</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

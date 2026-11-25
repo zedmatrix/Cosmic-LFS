@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-edit-version    "1.11.0">
+  <!ENTITY cosmic-edit-size       "80,289 KB">
+  <!ENTITY cosmic-edit-url        "&cosmic-url;/1.11.0/cosmic-edit-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-edit-sha256sum  "b68a20d1ae67dc45b4f37b0346b8f514d222b9014bef5592729828aceaa09181">
+  <!ENTITY cosmic-edit-md5sum     "d87e7346d2086ad49ff4d9251fafdad8">
+  <!ENTITY cosmic-edit-extracted  "1.1G">
+  <!ENTITY cosmic-edit-buildsize  "3.4G">
+  <!ENTITY cosmic-edit-buildtime  "3.68 SBU">
+]>
+ <sect1 id="cosmic-edit" xreflabel="Cosmic-edit-&cosmic-edit-version;">
+    <?dbhtml filename="cosmic-edit.html"?>
+
+      <title>Cosmic-edit-&cosmic-edit-version;</title>
+
+      <indexterm zone="cosmic-edit">
+          <primary sortas="a-Cosmic-edit">Cosmic-edit</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>text editor from COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-edit-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-edit-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &cosmic-edit-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-edit-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &cosmic-edit-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>
+      <bridgehead renderas="sect3">Cosmic-edit Dependencies</bridgehead>
+      <bridgehead renderas="sect4">Required</bridgehead>
+          <para>rustc, cargo-c, libxkbcommon, wayland, cosmic-icons,
+            glib, and gobject-introspection</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-edit</title>
+
+    <para>Prepare Cosmic-edit for compilation:</para>
+
+    <para>Fetch the dependencies, ensuring the exact versions recorded in the
+      existing <filename>Cargo.lock</filename> file are used:</para>
+
+    <screen><userinput remap="configure">cargo fetch --locked</userinput></screen>
+
+      <para>To Compile the Package, issue:</para>
+
+        <screen><userinput remap="make">export VERGEN_GIT_COMMIT_DATE='Tue Oct 20 13:45:44 2026 -0600'
+export VERGEN_GIT_SHA=4ac1cc84f784d4f89327f3d3459af2633ceb4f12
+cargo build --release
+</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vDm755 target/release/cosmic-edit /usr/bin/cosmic-edit &amp;&amp;
+
+install -vDm644 target/xdgen/com.system76.CosmicEdit.desktop \
+  /usr/share/applications/ &amp;&amp;
+
+install -vDm644 target/xdgen/com.system76.CosmicEdit.metainfo.xml \
+  /usr/share/metainfo &amp;&amp;
+
+cp -rv res/icons/hicolor/* /usr/share/icons/hicolor/</userinput></screen>
+
+        <screen><userinput remap="post">unset VERGEN_GIT_COMMIT_DATE VERGEN_GIT_SHA</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-edit</title>
+
+        <segmentedlist>
+          <segtitle>Installed program</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>cosmic-edit</seg>
+          <seg>None</seg>
+          <seg>/usr/bin, /usr/share/applications, /usr/share/metainfo, and /usr/share/icons/hicolor</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>

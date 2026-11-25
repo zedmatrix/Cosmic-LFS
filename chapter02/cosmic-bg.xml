@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sect1 PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+   "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+  <!ENTITY % general-entities SYSTEM "../general.ent">
+  %general-entities;
+
+  <!ENTITY cosmic-bg-version    "1.11.0">
+  <!ENTITY cosmic-bg-size       "23,574 KB">
+  <!ENTITY cosmic-bg-url        "&cosmic-url;/1.11.0/cosmic-bg-1.11.0.full.tar.zst">
+  <!ENTITY cosmic-bg-sha256sum  "ae005bc41c5dd11e4901e314eec2b0c9d1c95f3bae94085c81cdd54caf3a004d">
+  <!ENTITY cosmic-bg-md5sum     "98f899fd29616264c66e80a344fd79df">
+  <!ENTITY cosmic-bg-extracted  "383.6M">
+  <!ENTITY cosmic-bg-buildsize  "966.6M">
+  <!ENTITY cosmic-bg-buildtime  "less than 1.0 SBU">
+]>
+ <sect1 id="cosmic-bg" xreflabel="Cosmic-bg-&cosmic-bg-version;">
+    <?dbhtml filename="cosmic-bg.html"?>
+
+      <title>Cosmic-bg-&cosmic-bg-version;</title>
+
+      <indexterm zone="cosmic-bg">
+          <primary sortas="a-Cosmic-bg">Cosmic-bg</primary>
+      </indexterm>
+
+    <sect2 role="package">
+      <title/>
+
+      <para>display background service for COSMIC DE</para>
+
+      <bridgehead renderas="sect3">Package Information</bridgehead>
+
+      <itemizedlist spacing="compact">
+        <listitem>
+          <para>Download HTTP: <ulink url="&cosmic-bg-url;"/></para>
+
+        </listitem>
+        <listitem>
+          <para>Download SHA256 Sum: &cosmic-bg-sha256sum;</para>
+
+        </listitem>
+        <listitem>
+          <para>Download Size: &cosmic-bg-size;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Disk Space: &cosmic-bg-buildsize;</para>
+
+        </listitem>
+        <listitem>
+          <para>Estimated Build Time: &cosmic-bg-buildtime;</para>
+
+        </listitem>
+      </itemizedlist>
+      <bridgehead renderas="sect3">Cosmic-bg Dependencies</bridgehead>
+      <bridgehead renderas="sect4">Required</bridgehead>
+          <para>dav1d rustc cargo-c libxkbcommon nasm</para>
+
+    </sect2>
+
+      <sect2 role="installation">
+        <title>Installation of Cosmic-bg</title>
+
+    <para>Prepare Cosmic-bg for compilation:</para>
+
+      <para>To Compile the Package, issue:</para>
+
+        <screen><userinput remap="make">cargo build --release --no-default-features
+</userinput></screen>
+
+      <para>Now Install the Package, issue:</para>
+
+        <screen><userinput remap="install">install -vDm755 target/release/cosmic-bg /usr/bin/cosmic-bg &amp;&amp;
+
+install -vd /usr/share/cosmic/com.system76.CosmicBackground/v1 &amp;&amp;
+
+install -vm644 data/v1/* -t /usr/share/cosmic/com.system76.CosmicBackground/v1/</userinput></screen>
+
+      </sect2>
+
+      <sect2 role="content">
+        <title>Contents of Cosmic-bg</title>
+
+        <segmentedlist>
+          <segtitle>Installed programs</segtitle>
+          <segtitle>Installed libraries</segtitle>
+          <segtitle>Installed directories</segtitle>
+
+        <seglistitem>
+          <seg>cosmic-bg</seg>
+          <seg>None</seg>
+          <seg>/usr/bin, and /usr/share/cosmic</seg>
+        </seglistitem>
+        </segmentedlist>
+      </sect2>
+
+  </sect1>
